@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Rosebud Quilting",
+  title: "Rosebud Quilting | Quality Quilting, Affordable Prices",
   description:
     "Rosebud quilting provides high quality quilting services for your quilt tops. We offer edge to edge, custom, and heirloom quilting services.",
 };
