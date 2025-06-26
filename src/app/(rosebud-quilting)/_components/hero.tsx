@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import * as React from "react";
 import {
@@ -144,10 +144,10 @@ const HeroSection: React.FC = () => {
             )}
 
             <Typography gutterBottom sx={{ mt: 5 }}>
-              Discover the elegance and precision of our long arm quilting
-              services. Whether you're a seasoned quilter or just starting out,
-              Rosebud Quilting is here to transform your quilt tops into
-              stunning, heirloom-quality pieces.
+              At Rosebud Quilting, our mission is simple: to provide the highest
+              quality quilting at the most affordable prices. We believe that
+              every quilt deserves the best care, and we are committed to making
+              professional quilting accessible to everyone.
             </Typography>
 
             <Button sx={{ mt: 2 }} variant="contained">

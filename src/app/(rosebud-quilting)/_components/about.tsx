@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import {
   Box,
@@ -40,8 +40,8 @@ const AboutSection: React.FC = () => {
               love for the art of quilting, we specialize in providing top-notch
               long arm quilting services. Our state-of-the-art equipment and
               meticulous attention to detail ensure that every quilt we handle
-              is f inished to perfection. At Rosebud Quilting, we believe that
-              every quilt tells a story, and we`re here to help you tell yours
+              is finished to perfection. At Rosebud Quilting, we believe that
+              every quilt tells a story, and we're here to help you tell yours
               with beauty and precision.
             </Typography>
           </Box>
