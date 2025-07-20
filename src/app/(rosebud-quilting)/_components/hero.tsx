@@ -1,28 +1,17 @@
 "use client";
 
-import * as React from "react";
-import {
-  Box,
-  Button,
-  Card,
-  Container,
-  Stack,
-  Typography,
-  alpha,
-  useMediaQuery,
-  useTheme,
-} from "@mui/material";
+import { useState, useRef, useEffect } from "react";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
 import "@/styles/hero.css";
 
-const HeroSection: React.FC = () => {
-  const [text, setText] = React.useState<string>(
+export default function HeroSection() {
+  const [text, setText] = useState<string>(
     "Craft Your Quilting Dreams with Rosebud Quilting"
   );
-  const textRef = React.useRef(null);
-  const theme = useTheme();
-  const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
+  const textRef = useRef<HTMLHeadingElement>(null);
 
-  React.useEffect(() => {
+  useEffect(() => {
     const handleAnimationIteration = () => {
       setText((prevText) =>
         prevText === "Craft Your Quilting Dreams with Rosebud Quilting"
@@ -31,7 +20,7 @@ const HeroSection: React.FC = () => {
       );
     };
 
-    const node = textRef.current as unknown as HTMLElement;
+    const node = textRef.current;
     if (node) {
       node.addEventListener("animationiteration", handleAnimationIteration);
 
@@ -44,120 +33,59 @@ const HeroSection: React.FC = () => {
     }
   }, []);
 
+  const scrollToContact = () => {
+    const contactSection = document.getElementById("contact");
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
-    <React.Fragment>
-      <Box
-        id="hero"
-        sx={{
-          height: "70vh",
-          width: "100vw",
-          boxSizing: "border-box",
+    <section className="relative min-h-[70vh] w-full flex items-center justify-center">
+      {/* Background Image */}
+      <div
+        className="absolute inset-0 bg-cover bg-bottom"
+        style={{
           backgroundImage: "url(/images/hero2.webp)",
-          backgroundSize: "cover",
-          backgroundPosition: "bottom",
         }}
       />
-      <Box
-        sx={{
-          position: "absolute",
-          top: 0,
-          left: 0,
-          width: "100%",
-          height: isSmallScreen ? "70vh" : "70%",
-          mixBlendMode: "unset",
-          backgroundImage: (theme) =>
-            `linear-gradient(to bottom, ${alpha(
-              theme.palette.primary.light,
-              0.0
-            )}, ${alpha(theme.palette.background.default, 1)})`,
-        }}
-      />
+      
+      {/* Gradient Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent to-background" />
 
-      <Container
-        sx={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          pt: { xs: 14, sm: 20 },
-          pb: { xs: 8, sm: 12 },
-          zIndex: 1,
-          height: "100%",
-          mt: -55,
-        }}
-      >
-        <Stack
-          spacing={2}
-          useFlexGap
-          sx={{
-            width: { xs: "95%", sm: "95%" },
-            height: "100%",
-            zIndex: 1,
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-        >
-          <Card
-            sx={{
-              py: 15,
-              px: 5,
-              borderRadius: 2,
-              minWidth: { xs: "95%", sm: "100%" },
-              maxWidth: { xs: "95%", sm: "100%" },
-              textAlign: "center",
-            }}
-          >
-            {isSmallScreen ? (
-              <Typography
-                variant="h4"
-                component="h1"
-                sx={{
-                  display: "flex",
-                  flexDirection: "column",
-                  alignSelf: "center",
-                  textAlign: "center",
-                  overflow: "hidden",
-                  whiteSpace: "normal",
-                  lineHeight: "normal",
-                }}
-              >
-                {text}
-              </Typography>
-            ) : (
-              <Typography
-                variant="h4"
-                component="h1"
+      {/* Content */}
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20">
+        <div className="flex justify-center">
+          <Card className="w-full max-w-4xl text-center">
+            <CardContent className="p-12 sm:p-16">
+              <h1 
                 ref={textRef}
-                sx={{
-                  display: "flex",
-                  flexDirection: { xs: "column", md: "row" },
-                  alignSelf: "center",
-                  textAlign: "center",
-                  overflow: "hidden",
-                  whiteSpace: "nowrap",
-                  borderRight: "2px solid",
-                  animation: `typing 8s steps(40, end) infinite`,
-                  lineHeight: "normal",
+                className="text-2xl sm:text-4xl font-bold mb-8 overflow-hidden whitespace-nowrap border-r-2 border-primary animate-typing sm:block hidden"
+                style={{
+                  animation: 'typing 8s steps(40, end) infinite'
                 }}
               >
                 {text}
-              </Typography>
-            )}
+              </h1>
+              
+              <h1 className="text-2xl sm:text-4xl font-bold mb-8 sm:hidden block">
+                {text}
+              </h1>
 
-            <Typography gutterBottom sx={{ mt: 5 }}>
-              At Rosebud Quilting, our mission is simple: to provide the highest
-              quality quilting at the most affordable prices. We believe that
-              every quilt deserves the best care, and we are committed to making
-              professional quilting accessible to everyone.
-            </Typography>
+              <p className="text-lg text-muted-foreground mb-8">
+                At Rosebud Quilting, our mission is simple: to provide the highest
+                quality quilting at the most affordable prices. We believe that
+                every quilt deserves the best care, and we are committed to making
+                professional quilting accessible to everyone.
+              </p>
 
-            <Button sx={{ mt: 2 }} variant="contained">
-              Get Started Today
-            </Button>
+              <Button size="lg" onClick={scrollToContact}>
+                Get Started Today
+              </Button>
+            </CardContent>
           </Card>
-        </Stack>
-      </Container>
-    </React.Fragment>
+        </div>
+      </div>
+    </section>
   );
-};
-
-export default HeroSection;
+}

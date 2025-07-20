@@ -1,59 +1,31 @@
-'use client';
-
 import {
   Accordion,
-  AccordionDetails,
-  AccordionSummary,
-  Box,
-  Container,
-  Typography,
-  useMediaQuery,
-  useTheme,
-} from "@mui/material";
-import * as React from "react";
-import { ExpandMore } from "@mui/icons-material";
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 import { faqs } from "@/lib/faqs";
 
-const FaqSection: React.FC = () => {
-  const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
-  const [expanded, setExpanded] = React.useState<number | false>(false);
-
-  const handleChange =
-    (panel: number) => (event: React.SyntheticEvent, isExpanded: boolean) => {
-      setExpanded(isExpanded ? panel : false);
-    };
-
+export default function FaqSection() {
   return (
-    <React.Fragment>
-      <Container maxWidth="lg" sx={{ pt: 5, mt: 10 }}>
-        <Box>
-          <Typography
-            variant={isMobile ? "h4" : "h2"}
-            component="h2"
-            gutterBottom
-            sx={{ mb: 10 }}
-          >
-            Frequently Asked Questions
-          </Typography>
+    <section className="py-16 bg-muted/30">
+      <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+        <h2 className="text-3xl sm:text-4xl font-bold text-center text-foreground mb-12">
+          Frequently Asked Questions
+        </h2>
+        <Accordion type="single" collapsible className="w-full">
           {faqs.map((faq, index) => (
-            <Accordion
-              key={index}
-              expanded={expanded === index}
-              onChange={handleChange(index)}
-            >
-              <AccordionSummary expandIcon={<ExpandMore />}>
-                <Typography>{faq.question}</Typography>
-              </AccordionSummary>
-              <AccordionDetails>
-                <Typography>{faq.answer}</Typography>
-              </AccordionDetails>
-            </Accordion>
+            <AccordionItem key={index} value={`item-${index}`}>
+              <AccordionTrigger className="text-left">
+                {faq.question}
+              </AccordionTrigger>
+              <AccordionContent className="text-muted-foreground">
+                {faq.answer}
+              </AccordionContent>
+            </AccordionItem>
           ))}
-        </Box>
-      </Container>
-    </React.Fragment>
+        </Accordion>
+      </div>
+    </section>
   );
-};
-
-export default FaqSection;
+}

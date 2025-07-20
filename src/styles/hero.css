@@ -10,3 +10,7 @@
     50% { opacity: 1; }
     100% { opacity: 0; }
 }
+
+.animate-typing {
+    animation: typing 8s steps(40, end) infinite;
+}
