@@ -119,4 +119,42 @@
   body {
     @apply bg-background text-foreground;
   }
+  h1 {
+    font-family: 'AmsterdamOne', serif !important;
+    font-weight: normal !important;
+    line-height: 1.55 !important;
+    padding-top: 0.45em !important;
+    padding-bottom: 0.45em !important;
+    margin-top: 0.35em !important;
+    margin-bottom: 0.35em !important;
+    /* Prevent text cropping */
+    overflow: visible !important;
+    /* Better text rendering */
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    /* Ensure enough space for descenders and ascenders */
+    display: block !important;
+    /* Force proper spacing */
+    min-height: 1.55em;
+  }
+  
+  /* Hero section typing animation - minimal spacing for cursor */
+  .typing-cursor {
+    padding: 0 !important;
+    margin: 0 !important;
+    line-height: inherit !important;
+    display: inline !important;
+    min-height: auto !important;
+  }
+  
+  /* Specific fixes for page hero sections */
+  section h1,
+  .text-center h1 {
+    padding-top: 0.55em !important;
+    padding-bottom: 0.55em !important;
+    margin-top: 0.45em !important;
+    margin-bottom: 0.45em !important;
+    line-height: 1.65 !important;
+  }
 }

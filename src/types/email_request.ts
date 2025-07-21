@@ -3,6 +3,14 @@ export interface EmailRequest {
   lastName: string;
   email: string;
   phoneNumber: string;
-  quiltSize: string;
+  inquiryType: string;
+  serviceCategory?: string;
+  shopCategory?: string;
+  classLevel?: string;
+  quiltSize?: string;
+  projectDetails?: string;
+  timeline?: string;
+  budget?: string;
+  preferredContact: string;
   message: string;
 }

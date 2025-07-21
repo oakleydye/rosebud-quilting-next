@@ -2,7 +2,7 @@ import { Metadata } from "next";
 
 export const siteConfig = {
   name: "Rosebud Quilting",
-  description: "Rosebud quilting provides high quality quilting services for your quilt tops. We offer edge to edge, custom, and heirloom quilting services.",
+  description: "Your complete quilting destination - professional longarm services, premium fabrics, expert classes, and quilting supplies. Visit our Portland showroom or shop online.",
   url: "https://rosebudquilting.com", // Update with actual domain
   ogImage: "/images/og-image.webp", // Add OG image if available
 };
@@ -20,7 +20,7 @@ export function generateMetadata({
     metadataBase: new URL(siteConfig.url),
     title: title ? `${title} | ${siteConfig.name}` : `${siteConfig.name} | Quality Quilting, Affordable Prices`,
     description: description || siteConfig.description,
-    keywords: ["quilting", "long arm quilting", "custom quilting", "quilt services", "Utah quilting", "professional quilting"],
+    keywords: ["quilting", "longarm quilting", "quilting services", "quilting fabrics", "quilting classes", "quilting shop", "Portland quilting", "professional quilting", "quilting supplies", "quilting tools"],
     authors: [{ name: "Rosebud Quilting" }],
     creator: "Rosebud Quilting",
     openGraph: {

@@ -1,37 +1,47 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import "@/styles/hero.css";
 
 export default function HeroSection() {
-  const [text, setText] = useState<string>(
-    "Craft Your Quilting Dreams with Rosebud Quilting"
-  );
-  const textRef = useRef<HTMLHeadingElement>(null);
+  const [displayText, setDisplayText] = useState<string>("");
+  const [currentTextIndex, setCurrentTextIndex] = useState<number>(0);
+  const [isTyping, setIsTyping] = useState<boolean>(true);
+
+  const texts = [
+    "Your Complete Quilting Destination",
+    "Services • Shop • Classes • Community",
+  ];
 
   useEffect(() => {
-    const handleAnimationIteration = () => {
-      setText((prevText) =>
-        prevText === "Craft Your Quilting Dreams with Rosebud Quilting"
-          ? "Professional Quilting Services to Bring Your Creations to Life"
-          : "Craft Your Quilting Dreams with Rosebud Quilting"
-      );
-    };
+    const currentText = texts[currentTextIndex];
 
-    const node = textRef.current;
-    if (node) {
-      node.addEventListener("animationiteration", handleAnimationIteration);
-
-      return () => {
-        node.removeEventListener(
-          "animationiteration",
-          handleAnimationIteration
-        );
-      };
+    if (isTyping) {
+      if (displayText.length < currentText.length) {
+        const timeout = setTimeout(() => {
+          setDisplayText(currentText.slice(0, displayText.length + 1));
+        }, 100);
+        return () => clearTimeout(timeout);
+      } else {
+        const timeout = setTimeout(() => {
+          setIsTyping(false);
+        }, 2000);
+        return () => clearTimeout(timeout);
+      }
+    } else {
+      if (displayText.length > 0) {
+        const timeout = setTimeout(() => {
+          setDisplayText(displayText.slice(0, -1));
+        }, 50);
+        return () => clearTimeout(timeout);
+      } else {
+        setCurrentTextIndex((prev) => (prev + 1) % texts.length);
+        setIsTyping(true);
+      }
     }
-  }, []);
+  }, [displayText, currentTextIndex, isTyping]);
 
   const scrollToContact = () => {
     const contactSection = document.getElementById("contact");
@@ -49,39 +59,52 @@ export default function HeroSection() {
           backgroundImage: "url(/images/hero2.webp)",
         }}
       />
-      
+
       {/* Gradient Overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent to-background" />
 
       {/* Content */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 sm:pt-32">
         <div className="flex justify-center">
           <Card className="w-full max-w-4xl text-center">
             <CardContent className="p-12 sm:p-16">
-              <h1 
-                ref={textRef}
-                className="text-2xl sm:text-4xl font-bold mb-8 overflow-hidden whitespace-nowrap border-r-2 border-primary animate-typing sm:block hidden"
-                style={{
-                  animation: 'typing 8s steps(40, end) infinite'
-                }}
-              >
-                {text}
-              </h1>
-              
-              <h1 className="text-2xl sm:text-4xl font-bold mb-8 sm:hidden block">
-                {text}
+              <h1 className="text-2xl sm:text-4xl mb-8">
+                <span className="typing-cursor sm:inline hidden">
+                  {displayText}
+                </span>
+                <span className="sm:hidden inline">{displayText}</span>
               </h1>
 
               <p className="text-lg text-muted-foreground mb-8">
-                At Rosebud Quilting, our mission is simple: to provide the highest
-                quality quilting at the most affordable prices. We believe that
-                every quilt deserves the best care, and we are committed to making
-                professional quilting accessible to everyone.
+                Welcome to Rosebud Quilting – your one-stop destination for
+                professional quilting services, premium fabrics, expert classes,
+                and everything you need for your quilting journey. From longarm
+                quilting to learning new techniques, we're here to support your
+                passion.
               </p>
 
-              <Button size="lg" onClick={scrollToContact}>
-                Get Started Today
-              </Button>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Button
+                  size="lg"
+                  onClick={scrollToContact}
+                  className="bg-gradient-to-r from-rose-600 to-pink-600 hover:from-rose-500 hover:to-pink-500"
+                >
+                  Start Your Project
+                </Button>
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="border-rose-600 text-rose-600 hover:bg-gradient-to-r hover:from-rose-600 hover:to-pink-600 hover:text-white"
+                  onClick={() => {
+                    const servicesSection = document.getElementById("services");
+                    if (servicesSection) {
+                      servicesSection.scrollIntoView({ behavior: "smooth" });
+                    }
+                  }}
+                >
+                  Explore Services
+                </Button>
+              </div>
             </CardContent>
           </Card>
         </div>

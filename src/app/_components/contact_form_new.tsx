@@ -30,12 +30,14 @@ export default function ContactForm() {
     setIsSubmitting(true);
 
     const messageRequest: EmailRequest = {
-      firstName,
-      lastName,
-      email,
-      phoneNumber: phone,
-      quiltSize: quiltSize,
-      message,
+        firstName,
+        lastName,
+        email,
+        phoneNumber: phone,
+        quiltSize: quiltSize,
+        message,
+        inquiryType: "",
+        preferredContact: ""
     };
 
     try {
