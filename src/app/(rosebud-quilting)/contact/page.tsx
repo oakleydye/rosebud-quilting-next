@@ -13,36 +13,35 @@ const contactMethods = [
   {
     icon: Phone,
     title: "Call Us",
-    detail: "(555) 123-4567",
+    detail: "(801) 608-7461",
     description: "Speak directly with our quilting experts",
-    action: "tel:+15551234567"
+    action: "tel:+18016087461"
   },
   {
     icon: Mail, 
     title: "Email Us",
-    detail: "info@rosebudquilting.com",
+    detail: "diana@rosebudquilting.com",
     description: "Send us your questions or project details",
-    action: "mailto:info@rosebudquilting.com"
+    action: "mailto:diana@rosebudquilting.com"
   },
   {
     icon: MapPin,
     title: "Visit Our Store", 
-    detail: "123 Quilting Lane, Portland, OR 97201",
+    detail: "572 S 690 E Hyrum, UT 84319",
     description: "See our showroom and speak with our team",
     action: "https://maps.google.com"
   },
   {
     icon: MessageCircle,
     title: "Text Us",
-    detail: "(555) 123-4567", 
+    detail: "(801) 608-7461", 
     description: "Quick questions? Send us a text message",
-    action: "sms:+15551234567"
+    action: "sms:+18016087461"
   }
 ];
 
 const storeHours = [
-  { day: "Monday - Friday", hours: "9:00 AM - 7:00 PM" },
-  { day: "Saturday", hours: "9:00 AM - 6:00 PM" },
+  { day: "Monday - Saturday", hours: "9:00 AM - 7:00 PM" },
   { day: "Sunday", hours: "11:00 AM - 5:00 PM" }
 ];
 
@@ -199,8 +198,8 @@ export default function ContactPage() {
                 <CardContent>
                   <div className="space-y-2">
                     <div className="font-medium">Rosebud Quilting</div>
-                    <div>123 Quilting Lane</div>
-                    <div>Portland, OR 97201</div>
+                    <div>572 S 690 E</div>
+                    <div>Hyrum, UT 84319</div>
                     <div className="pt-2">
                       <Badge variant="outline">Free Parking Available</Badge>
                     </div>

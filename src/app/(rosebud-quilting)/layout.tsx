@@ -6,6 +6,7 @@ import "@/styles/fonts.css";
 import { generateMetadata } from "@/lib/metadata";
 import { Header } from "../_components/header";
 import Footer from "../_components/footer";
+import { CartSidebar } from "@/components/cart/cart-sidebar";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -34,6 +35,7 @@ export default function RootLayout({
             <Header />
             <main className="flex-1">{children}</main>
             <Footer />
+            <CartSidebar />
           </div>
         </Providers>
       </body>

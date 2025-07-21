@@ -172,7 +172,7 @@ export default function ShopOverview() {
                 professional tools, and knowledgeable staff ready to help with your projects.
               </p>
               <div className="space-y-2 text-sm text-gray-600 mb-6">
-                <div><strong>Location:</strong> 123 Quilting Lane, Portland, OR</div>
+                <div><strong>Location:</strong> 572 S 690 E Hyrum, UT 84319</div>
                 <div><strong>Hours:</strong> Mon-Sat 9am-7pm, Sun 11am-5pm</div>
                 <div><strong>Perks:</strong> Free parking, cutting service, expert advice</div>
               </div>

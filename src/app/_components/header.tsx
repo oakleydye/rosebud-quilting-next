@@ -22,12 +22,13 @@ import {
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
-import { Menu, ChevronDown } from "lucide-react";
+import { Menu, ChevronDown, ShoppingCart } from "lucide-react";
+import { useAtom } from 'jotai';
+import { cartItemCountAtom, cartOpenAtom, toggleCartAtom } from '@/lib/store/cart';
 import { cn } from "@/lib/utils";
 
 const navigation = [
   { name: "Home", href: "/" },
-  { name: "About", href: "/about" },
   {
     name: "Services",
     href: "/services",
@@ -69,11 +70,6 @@ const navigation = [
         description: "Browse our complete quilting shop",
       },
       {
-        name: "Machines",
-        href: "/shop/machines",
-        description: "High-quality quilting machines and accessories",
-      },
-      {
         name: "Fabrics",
         href: "/shop/fabrics",
         description: "Premium quilting fabrics and collections",
@@ -92,11 +88,6 @@ const navigation = [
         name: "Kits",
         href: "/shop/kits",
         description: "Complete quilting project kits",
-      },
-      {
-        name: "Longarm Designs",
-        href: "/shop/longarm-designs",
-        description: "Digitized designs for longarm quilting",
       },
     ],
   },
@@ -131,13 +122,34 @@ const navigation = [
       },
     ],
   },
-  { name: "FAQ", href: "/faq" },
-  { name: "Contact", href: "/contact" },
+  {
+    name: "More",
+    href: "#",
+    children: [
+      {
+        name: "About",
+        href: "/about",
+        description: "Learn about Rosebud Quilting's story",
+      },
+      {
+        name: "Gallery",
+        href: "/gallery",
+        description: "View our quilting portfolio and projects",
+      },
+      {
+        name: "FAQ",
+        href: "/faq",
+        description: "Frequently asked questions",
+      },
+    ],
+  },
 ];
 
 export function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
+  const [itemCount] = useAtom(cartItemCountAtom);
+  const [, toggleCart] = useAtom(toggleCartAtom);
 
   return (
     <header className="fixed top-0 z-50 w-full">
@@ -154,42 +166,68 @@ export function Header() {
               />
             </Link>
 
-            {/* Desktop Navigation */}
-            <NavigationMenu className="hidden lg:flex">
-              <NavigationMenuList>
-                {navigation.map((item) => (
-                  <NavigationMenuItem key={item.name}>
-                    {item.children ? (
-                      <>
-                        <NavigationMenuTrigger className="bg-transparent">
+            {/* Right Side Navigation */}
+            <div className="hidden lg:flex items-center space-x-6">
+              {/* Desktop Navigation */}
+              <NavigationMenu>
+                <NavigationMenuList>
+                  {navigation.map((item) => (
+                    <NavigationMenuItem key={item.name}>
+                      {item.children ? (
+                        <>
+                          <NavigationMenuTrigger className="bg-transparent">
+                            {item.name}
+                          </NavigationMenuTrigger>
+                          <NavigationMenuContent>
+                            <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
+                              {item.children.map((child) => (
+                                <ListItem
+                                  key={child.name}
+                                  title={child.name}
+                                  href={child.href}
+                                >
+                                  {child.description}
+                                </ListItem>
+                              ))}
+                            </ul>
+                          </NavigationMenuContent>
+                        </>
+                      ) : (
+                        <Link
+                          href={item.href}
+                          className="inline-flex h-9 w-max items-center justify-center rounded-md bg-transparent px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50"
+                        >
                           {item.name}
-                        </NavigationMenuTrigger>
-                        <NavigationMenuContent>
-                          <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
-                            {item.children.map((child) => (
-                              <ListItem
-                                key={child.name}
-                                title={child.name}
-                                href={child.href}
-                              >
-                                {child.description}
-                              </ListItem>
-                            ))}
-                          </ul>
-                        </NavigationMenuContent>
-                      </>
-                    ) : (
-                      <Link
-                        href={item.href}
-                        className="inline-flex h-9 w-max items-center justify-center rounded-md bg-transparent px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50"
-                      >
-                        {item.name}
-                      </Link>
-                    )}
-                  </NavigationMenuItem>
-                ))}
-              </NavigationMenuList>
-            </NavigationMenu>
+                        </Link>
+                      )}
+                    </NavigationMenuItem>
+                  ))}
+                </NavigationMenuList>
+              </NavigationMenu>
+
+              {/* Contact CTA Button */}
+              <Link href="/contact">
+                <Button className="bg-gradient-to-r from-rose-600 to-pink-600 hover:from-rose-700 hover:to-pink-700 text-white">
+                  Contact Us
+                </Button>
+              </Link>
+
+              {/* Cart Icon */}
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={() => toggleCart()}
+                className="relative"
+              >
+                <ShoppingCart className="h-6 w-6" />
+                {itemCount > 0 && (
+                  <span className="absolute -top-2 -right-2 bg-rose-600 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
+                    {itemCount}
+                  </span>
+                )}
+                <span className="sr-only">Shopping cart</span>
+              </Button>
+            </div>
 
             {/* Mobile Navigation */}
             <Sheet open={isOpen} onOpenChange={setIsOpen}>
@@ -242,6 +280,35 @@ export function Header() {
                       )}
                     </div>
                   ))}
+                  
+                  {/* Mobile Contact Button */}
+                  <div className="border-t pt-4">
+                    <Link href="/contact" onClick={() => setIsOpen(false)}>
+                      <Button className="w-full bg-purple-600 hover:bg-purple-700 text-white">
+                        Contact Us
+                      </Button>
+                    </Link>
+                  </div>
+
+                  {/* Mobile Cart */}
+                  <div className="border-t pt-4 mt-4">
+                    <Button
+                      variant="ghost"
+                      onClick={() => {
+                        toggleCart();
+                        setIsOpen(false);
+                      }}
+                      className="w-full justify-start text-lg font-semibold p-2 hover:bg-accent rounded-md transition-colors"
+                    >
+                      <ShoppingCart className="h-5 w-5 mr-2" />
+                      Cart
+                      {itemCount > 0 && (
+                        <span className="ml-auto bg-purple-600 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
+                          {itemCount}
+                        </span>
+                      )}
+                    </Button>
+                  </div>
                 </div>
               </SheetContent>
             </Sheet>

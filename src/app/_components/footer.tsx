@@ -22,11 +22,11 @@ export default function Footer() {
               <h3 className="text-xl font-semibold font-amsterdam">Rosebud Quilting</h3>
             </div>
             <p className="text-slate-300 mb-6 leading-relaxed">
-              Your complete quilting destination since 1999. Professional longarm quilting, premium fabrics, expert classes, and everything you need for your quilting journey in Portland, Oregon.
+              Your complete quilting destination since 2023. Professional longarm quilting, premium fabrics, expert classes, and everything you need for your quilting journey in Hyrum, Utah.
             </p>
             <div className="flex items-center space-x-2 text-slate-300 mb-2">
               <Clock className="h-4 w-4" />
-              <span className="text-sm">Mon-Sat: 9AM-6PM | Sun: 12PM-5PM</span>
+              <span className="text-sm">Mon-Sat: 9AM-7PM | Sun: 11AM-5PM</span>
             </div>
           </div>
 
@@ -85,23 +85,23 @@ export default function Footer() {
                 <MapPin className="h-5 w-5 text-slate-400 mt-0.5 flex-shrink-0" />
                 <div className="text-slate-300">
                   <p className="font-medium">Visit Our Studio</p>
-                  <p className="text-sm">Portland, Oregon</p>
-                  <p className="text-sm">Serving Pacific Northwest</p>
+                  <p className="text-sm">572 S 690 E Hyrum, UT 84319</p>
+                  <p className="text-sm">Serving Northern Utah</p>
                 </div>
               </div>
               <div className="flex items-center space-x-3">
                 <Phone className="h-5 w-5 text-slate-400 flex-shrink-0" />
                 <div>
-                  <a href="tel:+15551234567" className="text-slate-300 hover:text-white transition-colors">
-                    (555) 123-4567
+                  <a href="tel:+18016087461" className="text-slate-300 hover:text-white transition-colors">
+                    (801) 608-7461
                   </a>
                 </div>
               </div>
               <div className="flex items-center space-x-3">
                 <Mail className="h-5 w-5 text-slate-400 flex-shrink-0" />
                 <div>
-                  <a href="mailto:info@rosebudquilting.com" className="text-slate-300 hover:text-white transition-colors">
-                    info@rosebudquilting.com
+                  <a href="mailto:diana@rosebudquilting.com" className="text-slate-300 hover:text-white transition-colors">
+                    diana@rosebudquilting.com
                   </a>
                 </div>
               </div>
@@ -130,10 +130,10 @@ export default function Footer() {
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <div className="text-slate-400 text-sm">
               <p>&copy; {currentYear} Rosebud Quilting. All rights reserved.</p>
-              <p className="mt-1">Professional Quilting Services | Portland, Oregon | Est. 1999</p>
+              <p className="mt-1">Professional Quilting Services | Hyrum, Utah | Est. 2023</p>
             </div>
             <div className="text-slate-400 text-sm">
-              <p>Serving quilters throughout the Pacific Northwest with quality and care.</p>
+              <p>Serving quilters throughout Northern Utah with quality and care.</p>
             </div>
           </div>
         </div>
@@ -147,24 +147,26 @@ export default function Footer() {
             "@context": "https://schema.org",
             "@type": "LocalBusiness",
             "name": "Rosebud Quilting",
-            "description": "Professional quilting services, premium fabrics, quilting classes, and supplies in Portland, Oregon. Specializing in longarm quilting, custom designs, and quilt restoration since 1999.",
+            "description": "Professional quilting services, premium fabrics, quilting classes, and supplies in Hyrum, Utah. Specializing in longarm quilting, custom designs, and quilt restoration since 2023.",
             "url": "https://www.rosebudquilting.com",
-            "telephone": "+15551234567",
-            "email": "info@rosebudquilting.com",
+            "telephone": "+18016087461",
+            "email": "diana@rosebudquilting.com",
             "address": {
               "@type": "PostalAddress",
-              "addressLocality": "Portland",
-              "addressRegion": "OR",
+              "streetAddress": "572 S 690 E",
+              "addressLocality": "Hyrum",
+              "addressRegion": "UT",
+              "postalCode": "84319",
               "addressCountry": "US"
             },
             "geo": {
               "@type": "GeoCoordinates",
-              "latitude": "45.5152",
-              "longitude": "-122.6784"
+              "latitude": "41.6341",
+              "longitude": "-111.8538"
             },
             "openingHours": [
-              "Mo-Sa 09:00-18:00",
-              "Su 12:00-17:00"
+              "Mo-Sa 09:00-19:00",
+              "Su 11:00-17:00"
             ],
             "servesCuisine": [],
             "priceRange": "$$",

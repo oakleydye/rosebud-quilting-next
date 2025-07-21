@@ -10,7 +10,7 @@ export const faqs = {
     },
     {
       question: "What are your hours of operation?",
-      answer: "Our store is open Tuesday through Saturday, 9 AM to 6 PM, and Sunday 12 PM to 4 PM. We're closed Mondays. For services like longarm quilting drop-offs and pickups, please call ahead to ensure someone is available to assist you."
+      answer: "Our store is open Monday through Saturday, 9 AM to 7 PM, and Sunday 11 AM to 5 PM. For services like longarm quilting drop-offs and pickups, please call ahead to ensure someone is available to assist you."
     },
     {
       question: "Do you offer consultations?",
@@ -37,6 +37,10 @@ export const faqs = {
     {
       question: "Do you provide batting and thread?",
       answer: "Yes, we stock high-quality batting in various weights and materials (cotton, poly, wool blends). We also have an extensive selection of quilting threads in hundreds of colors. You can choose to provide your own materials or select from our inventory - we'll help you choose the best options for your project."
+    },
+    {
+        question: "Do you offer T-shirt quilts?",
+        answer: "Yes, we create custom T-shirt quilts from your favorite shirts. You can bring in your shirts, and we'll help you design a unique quilt that showcases your memories. We handle everything from cutting the shirts to quilting and finishing the quilt."
     }
   ],
   pricing: [

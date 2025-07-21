@@ -108,7 +108,7 @@ export default function ShopPage() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative py-24 bg-gradient-to-br from-purple-50 to-indigo-100">
+      <section className="relative pt-32 pb-20 bg-gradient-to-br from-purple-50 to-indigo-100">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <Badge className="mb-4 bg-purple-100 text-purple-800 hover:bg-purple-200">
@@ -275,9 +275,9 @@ export default function ShopPage() {
                   test our tools, and get expert advice from our knowledgeable staff.
                 </p>
                 <div className="text-purple-100 space-y-2 mb-8">
-                  <div><strong>Address:</strong> 123 Quilting Lane, Portland, OR 97201</div>
+                  <div><strong>Address:</strong> 572 S 690 E Hyrum, UT 84319</div>
                   <div><strong>Hours:</strong> Mon-Sat 9am-7pm, Sun 11am-5pm</div>
-                  <div><strong>Phone:</strong> (555) 123-4567</div>
+                  <div><strong>Phone:</strong> (801) 608-7461</div>
                 </div>
                 <Button size="lg" variant="secondary" className="bg-white text-purple-600 hover:bg-gray-50">
                   Get Directions
