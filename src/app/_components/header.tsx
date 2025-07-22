@@ -146,15 +146,23 @@ const navigation = [
 ];
 
 // Mobile Navigation Item Component
-function MobileNavItem({ item, onClose }: { item: any; onClose: () => void }) {
-  const [isOpen, setIsOpen] = useState(false);
-
+function MobileNavItem({ 
+  item, 
+  isOpen, 
+  onToggle, 
+  onClose 
+}: { 
+  item: any; 
+  isOpen?: boolean;
+  onToggle?: () => void;
+  onClose: () => void; 
+}) {
   return (
     <div className="space-y-1">
       {item.children ? (
         <>
           <button
-            onClick={() => setIsOpen(!isOpen)}
+            onClick={onToggle}
             className="flex w-full items-center justify-between rounded-md p-3 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none"
           >
             {item.name}
@@ -190,6 +198,7 @@ function MobileNavItem({ item, onClose }: { item: any; onClose: () => void }) {
 
 export function Header() {
   const [isOpen, setIsOpen] = useState(false);
+  const [openSubmenu, setOpenSubmenu] = useState<string | null>(null);
   const pathname = usePathname();
   const [itemCount] = useAtom(cartItemCountAtom);
   const [, toggleCart] = useAtom(toggleCartAtom);
@@ -280,18 +289,11 @@ export function Header() {
                   <span className="sr-only">Toggle navigation menu</span>
                 </Button>
               </SheetTrigger>
-              <SheetContent side="right" className="w-[320px] sm:w-[350px] flex flex-col">
-                <SheetHeader className="flex-shrink-0">
+              <SheetContent side="right" className="w-[320px] sm:w-[350px] flex flex-col p-6">
+                <SheetHeader className="flex-shrink-0 pb-4">
                   <SheetTitle>
                     <div className="flex items-center space-x-2">
-                      <Image
-                        src="/logo.png"
-                        alt="Rosebud Quilting"
-                        width={225}
-                        height={100}
-                        className="h-auto w-225 object-contain"
-                        priority
-                      />
+                      <h1>Rosebud Quilting</h1>
                     </div>
                   </SheetTitle>
                   <SheetDescription className="text-xs">
@@ -300,18 +302,20 @@ export function Header() {
                 </SheetHeader>
                 
                 {/* Scrollable content area */}
-                <div className="flex-1 overflow-y-auto py-4 space-y-3">
+                <div className="flex-1 overflow-y-auto py-2 space-y-2 px-1">
                   {navigation.map((item) => (
                     <MobileNavItem 
                       key={item.name} 
                       item={item} 
+                      isOpen={openSubmenu === item.name}
+                      onToggle={() => setOpenSubmenu(openSubmenu === item.name ? null : item.name)}
                       onClose={() => setIsOpen(false)} 
                     />
                   ))}
                 </div>
 
                 {/* Fixed bottom actions */}
-                <div className="flex-shrink-0 border-t pt-4 space-y-3">
+                <div className="flex-shrink-0 border-t pt-4 mt-4 space-y-4">
                   <Link href="/contact" onClick={() => setIsOpen(false)}>
                     <Button className="w-full bg-gradient-to-r from-rose-600 to-pink-600 hover:from-rose-700 hover:to-pink-700 text-white">
                       Contact Us
@@ -324,7 +328,7 @@ export function Header() {
                       toggleCart();
                       setIsOpen(false);
                     }}
-                    className="w-full justify-start"
+                    className="w-full justify-start mt-4"
                   >
                     <ShoppingCart className="h-4 w-4 mr-2" />
                     Cart
