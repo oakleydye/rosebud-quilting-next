@@ -8,11 +8,10 @@ export async function GET(request: NextRequest) {
     const priority = searchParams.get('priority');
     const inquiryType = searchParams.get('inquiryType');
 
-    const where = {
-      ...(status && { status: status.toUpperCase() }),
-      ...(priority && { priority: priority.toUpperCase() }),
-      ...(inquiryType && { inquiryType: inquiryType.toUpperCase() }),
-    };
+    const where: any = {};
+    if (status) where.status = status.toUpperCase();
+    if (priority) where.priority = priority.toUpperCase();
+    if (inquiryType) where.inquiryType = inquiryType.toUpperCase();
 
     const serviceRequests = await prisma.serviceRequest.findMany({
       where,

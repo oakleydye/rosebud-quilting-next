@@ -72,8 +72,8 @@ export async function POST(request: NextRequest) {
 }
 
 // Helper functions to map form values to database enums
-function mapInquiryType(type: string): string {
-  const mapping: { [key: string]: string } = {
+function mapInquiryType(type: string): "SERVICE" | "CLASS" | "SHOP" | "GENERAL" {
+  const mapping: { [key: string]: "SERVICE" | "CLASS" | "SHOP" | "GENERAL" } = {
     'services': 'SERVICE',
     'shop': 'SHOP', 
     'classes': 'CLASS',
@@ -82,9 +82,9 @@ function mapInquiryType(type: string): string {
   return mapping[type] || 'GENERAL';
 }
 
-function mapServiceCategory(category: string): string | undefined {
+function mapServiceCategory(category: string | undefined): "LONGARM" | "REPAIR" | "CUSTOM" | "BINDING" | undefined {
   if (!category) return undefined;
-  const mapping: { [key: string]: string } = {
+  const mapping: { [key: string]: "LONGARM" | "REPAIR" | "CUSTOM" | "BINDING" } = {
     'longarm': 'LONGARM',
     'custom': 'CUSTOM',
     'repair': 'REPAIR',
@@ -93,9 +93,9 @@ function mapServiceCategory(category: string): string | undefined {
   return mapping[category];
 }
 
-function mapShopCategory(category: string): string | undefined {
+function mapShopCategory(category: string | undefined): "FABRICS" | "NOTIONS" | "PATTERNS" | "KITS" | undefined {
   if (!category) return undefined;
-  const mapping: { [key: string]: string } = {
+  const mapping: { [key: string]: "FABRICS" | "NOTIONS" | "PATTERNS" | "KITS" } = {
     'fabrics': 'FABRICS',
     'notions': 'NOTIONS',
     'patterns': 'PATTERNS',
@@ -104,9 +104,9 @@ function mapShopCategory(category: string): string | undefined {
   return mapping[category];
 }
 
-function mapClassLevel(level: string): string | undefined {
+function mapClassLevel(level: string | undefined): "BEGINNER" | "INTERMEDIATE" | "ADVANCED" | "WORKSHOP" | undefined {
   if (!level) return undefined;
-  const mapping: { [key: string]: string } = {
+  const mapping: { [key: string]: "BEGINNER" | "INTERMEDIATE" | "ADVANCED" | "WORKSHOP" } = {
     'beginner': 'BEGINNER',
     'intermediate': 'INTERMEDIATE', 
     'advanced': 'ADVANCED',
@@ -115,8 +115,8 @@ function mapClassLevel(level: string): string | undefined {
   return mapping[level];
 }
 
-function mapPreferredContact(contact: string): string {
-  const mapping: { [key: string]: string } = {
+function mapPreferredContact(contact: string): "EMAIL" | "PHONE" {
+  const mapping: { [key: string]: "EMAIL" | "PHONE" } = {
     'email': 'EMAIL',
     'phone': 'PHONE'
   };
