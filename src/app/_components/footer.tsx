@@ -134,6 +134,7 @@ export default function Footer() {
             </div>
             <div className="text-slate-400 text-sm">
               <p>Serving quilters throughout Northern Utah with quality and care.</p>
+              <p className="mt-1">Powered by <Link href="https://www.oakleydye.com" target='_blank' rel='noopener noreferrer' className='text-slate-300 hover:text-white transition-colors'>Oakley Dye Software & Design</Link></p>
             </div>
           </div>
         </div>
