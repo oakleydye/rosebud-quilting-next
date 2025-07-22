@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useLayoutEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import "@/styles/hero.css";
@@ -9,13 +9,29 @@ export default function HeroSection() {
   const [displayText, setDisplayText] = useState<string>("");
   const [currentTextIndex, setCurrentTextIndex] = useState<number>(0);
   const [isTyping, setIsTyping] = useState<boolean>(true);
+  const [isMobile, setIsMobile] = useState<boolean>(false);
 
   const texts = [
-    "Your Complete Quilting Destination",
     "Services • Shop • Classes • Community",
+    "Your Complete Quilting Destination",
   ];
 
+  useLayoutEffect(() => {
+    const checkMobile = () => window.innerWidth < 768;
+    setIsMobile(checkMobile());
+
+    const handleResize = () => setIsMobile(checkMobile());
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   useEffect(() => {
+    if (isMobile) {
+      setDisplayText(texts[currentTextIndex]);
+      return;
+    }
+
     const currentText = texts[currentTextIndex];
 
     if (isTyping) {
@@ -69,10 +85,11 @@ export default function HeroSection() {
           <Card className="w-full max-w-4xl text-center">
             <CardContent className="p-12 sm:p-16">
               <h1 className="text-2xl sm:text-4xl mb-8">
-                <span className="typing-cursor sm:inline hidden">
-                  {displayText}
-                </span>
-                <span className="sm:hidden inline">{displayText}</span>
+                {isMobile ? (
+                  <span>{displayText}</span>
+                ) : (
+                  <span className="typing-cursor">{displayText}</span>
+                )}
               </h1>
 
               <p className="text-lg text-muted-foreground mb-8">
