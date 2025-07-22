@@ -22,7 +22,7 @@ import {
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
-import { Menu, ChevronDown, ShoppingCart } from "lucide-react";
+import { Menu, ChevronDown, ChevronRight, ShoppingCart } from "lucide-react";
 import { useAtom } from 'jotai';
 import { cartItemCountAtom, cartOpenAtom, toggleCartAtom } from '@/lib/store/cart';
 import { cn } from "@/lib/utils";
@@ -145,6 +145,49 @@ const navigation = [
   },
 ];
 
+// Mobile Navigation Item Component
+function MobileNavItem({ item, onClose }: { item: any; onClose: () => void }) {
+  const [isOpen, setIsOpen] = useState(false);
+
+  return (
+    <div className="space-y-1">
+      {item.children ? (
+        <>
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            className="flex w-full items-center justify-between rounded-md p-3 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none"
+          >
+            {item.name}
+            <ChevronRight className={`h-4 w-4 transition-transform ${isOpen ? 'rotate-90' : ''}`} />
+          </button>
+          {isOpen && (
+            <div className="pl-4 space-y-1">
+              {item.children.map((child: any) => (
+                <Link
+                  key={child.name}
+                  href={child.href}
+                  className="block rounded-md p-2 text-sm text-muted-foreground transition-colors hover:bg-accent hover:text-accent-foreground"
+                  onClick={onClose}
+                >
+                  {child.name}
+                </Link>
+              ))}
+            </div>
+          )}
+        </>
+      ) : (
+        <Link
+          href={item.href}
+          className="block rounded-md p-3 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground"
+          onClick={onClose}
+        >
+          {item.name}
+        </Link>
+      )}
+    </div>
+  );
+}
+
 export function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
@@ -237,78 +280,60 @@ export function Header() {
                   <span className="sr-only">Toggle navigation menu</span>
                 </Button>
               </SheetTrigger>
-              <SheetContent side="right" className="w-[350px] sm:w-[400px]">
-                <SheetHeader>
+              <SheetContent side="right" className="w-[320px] sm:w-[350px] flex flex-col">
+                <SheetHeader className="flex-shrink-0">
                   <SheetTitle>
-                    <div className="flex items-center space-x-3">
+                    <div className="flex items-center space-x-2">
                       <Image
                         src="/logo.png"
                         alt="Rosebud Quilting"
-                        width={32}
-                        height={32}
+                        width={225}
+                        height={100}
+                        className="h-auto w-225 object-contain"
+                        priority
                       />
-                      <span className="font-amsterdam">Rosebud Quilting</span>
                     </div>
                   </SheetTitle>
-                  <SheetDescription>
+                  <SheetDescription className="text-xs">
                     Your complete quilting destination
                   </SheetDescription>
                 </SheetHeader>
-                <div className="grid gap-2 py-6">
+                
+                {/* Scrollable content area */}
+                <div className="flex-1 overflow-y-auto py-4 space-y-3">
                   {navigation.map((item) => (
-                    <div key={item.name} className="grid gap-1">
-                      <Link
-                        href={item.href}
-                        className="text-lg font-semibold p-2 hover:bg-accent rounded-md transition-colors"
-                        onClick={() => setIsOpen(false)}
-                      >
-                        {item.name}
-                      </Link>
-                      {item.children && (
-                        <div className="grid gap-1 ml-4">
-                          {item.children.map((child) => (
-                            <Link
-                              key={child.name}
-                              href={child.href}
-                              className="text-sm text-muted-foreground p-2 hover:bg-accent hover:text-accent-foreground rounded-md transition-colors"
-                              onClick={() => setIsOpen(false)}
-                            >
-                              {child.name}
-                            </Link>
-                          ))}
-                        </div>
-                      )}
-                    </div>
+                    <MobileNavItem 
+                      key={item.name} 
+                      item={item} 
+                      onClose={() => setIsOpen(false)} 
+                    />
                   ))}
-                  
-                  {/* Mobile Contact Button */}
-                  <div className="border-t pt-4">
-                    <Link href="/contact" onClick={() => setIsOpen(false)}>
-                      <Button className="w-full bg-purple-600 hover:bg-purple-700 text-white">
-                        Contact Us
-                      </Button>
-                    </Link>
-                  </div>
+                </div>
 
-                  {/* Mobile Cart */}
-                  <div className="border-t pt-4 mt-4">
-                    <Button
-                      variant="ghost"
-                      onClick={() => {
-                        toggleCart();
-                        setIsOpen(false);
-                      }}
-                      className="w-full justify-start text-lg font-semibold p-2 hover:bg-accent rounded-md transition-colors"
-                    >
-                      <ShoppingCart className="h-5 w-5 mr-2" />
-                      Cart
-                      {itemCount > 0 && (
-                        <span className="ml-auto bg-purple-600 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
-                          {itemCount}
-                        </span>
-                      )}
+                {/* Fixed bottom actions */}
+                <div className="flex-shrink-0 border-t pt-4 space-y-3">
+                  <Link href="/contact" onClick={() => setIsOpen(false)}>
+                    <Button className="w-full bg-gradient-to-r from-rose-600 to-pink-600 hover:from-rose-700 hover:to-pink-700 text-white">
+                      Contact Us
                     </Button>
-                  </div>
+                  </Link>
+
+                  <Button
+                    variant="outline"
+                    onClick={() => {
+                      toggleCart();
+                      setIsOpen(false);
+                    }}
+                    className="w-full justify-start"
+                  >
+                    <ShoppingCart className="h-4 w-4 mr-2" />
+                    Cart
+                    {itemCount > 0 && (
+                      <span className="ml-auto bg-rose-600 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
+                        {itemCount}
+                      </span>
+                    )}
+                  </Button>
                 </div>
               </SheetContent>
             </Sheet>
