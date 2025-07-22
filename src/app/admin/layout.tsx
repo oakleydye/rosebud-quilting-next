@@ -5,6 +5,7 @@ import "@/styles/fonts.css";
 import { AdminSidebar } from "./_components/admin-sidebar";
 import { AdminHeader } from "./_components/admin-header";
 import { AdminAuthProvider } from "./_components/admin-auth-provider";
+import Providers from "../(rosebud-quilting)/providers";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -30,19 +31,21 @@ export default function AdminLayout({
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        <AdminAuthProvider>
-          <div className="min-h-screen bg-gray-50">
-            <AdminHeader />
-            <div className="flex">
-              <AdminSidebar />
-              <main className="flex-1 ml-64 pt-16">
-                <div className="p-6">
-                  {children}
-                </div>
-              </main>
+        <Providers>
+          <AdminAuthProvider>
+            <div className="min-h-screen bg-gray-50">
+              <AdminHeader />
+              <div className="flex">
+                <AdminSidebar />
+                <main className="flex-1 ml-64 pt-16">
+                  <div className="p-6">
+                    {children}
+                  </div>
+                </main>
+              </div>
             </div>
-          </div>
-        </AdminAuthProvider>
+          </AdminAuthProvider>
+        </Providers>
       </body>
     </html>
   );
