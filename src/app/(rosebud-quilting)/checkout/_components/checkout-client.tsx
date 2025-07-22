@@ -10,7 +10,6 @@ import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { Checkbox } from '@/components/ui/checkbox';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
-import { Badge } from '@/components/ui/badge';
 import { Separator } from '@/components/ui/separator';
 import { 
   CreditCard, 
@@ -20,10 +19,9 @@ import {
   Lock,
   CheckCircle 
 } from 'lucide-react';
-import { useAtom } from 'jotai';
+import { useAtomValue } from 'jotai';
 import {
   cartItemsAtom,
-  cartItemCountAtom,
   cartSubtotalAtom,
   cartTaxAtom,
   cartShippingAtom,
@@ -32,12 +30,11 @@ import {
 import { ShippingAddress } from '@/types/shop';
 
 export default function CheckoutClient() {
-  const [items] = useAtom(cartItemsAtom);
-  const [itemCount] = useAtom(cartItemCountAtom);
-  const [subtotal] = useAtom(cartSubtotalAtom);
-  const [tax] = useAtom(cartTaxAtom);
-  const [shipping] = useAtom(cartShippingAtom);
-  const [total] = useAtom(cartTotalAtom);
+  const items = useAtomValue(cartItemsAtom);
+  const subtotal = useAtomValue(cartSubtotalAtom);
+  const tax = useAtomValue(cartTaxAtom);
+  const shipping = useAtomValue(cartShippingAtom);
+  const total = useAtomValue(cartTotalAtom);
 
   const [step, setStep] = useState(1);
   const [shippingAddress, setShippingAddress] = useState<ShippingAddress>({

@@ -106,25 +106,11 @@ const upcomingWorkshops = [
 
 const instructors = [
   {
-    name: "Sarah Mitchell",
-    title: "Master Quilter & Owner",
-    experience: "25+ years",
-    specialty: "Traditional & Modern Quilting",
-    bio: "Award-winning quilter with pieces featured in national shows and publications."
-  },
-  {
-    name: "Maria Rodriguez", 
-    title: "Appliqué Specialist",
-    experience: "18+ years",
-    specialty: "Hand Appliqué & Embellishment",
-    bio: "Expert in traditional appliqué techniques and contemporary art quilting."
-  },
-  {
-    name: "Jennifer Thompson",
-    title: "Longarm Expert",
-    experience: "12+ years", 
-    specialty: "Machine Quilting & Design",
-    bio: "Professional longarm quilter specializing in custom quilting designs."
+    name: "Diana Dye",
+    title: "Lead Instructor",
+    experience: "15 years of quilting and teaching",
+    specialty: "Artistic quilting and design",
+    bio: "Diana is passionate about sharing her love of quilting and helping students find their unique style. With over 15 years of experience, she specializes in artistic quilting techniques and design principles. Diana believes in creating a supportive, creative environment where students can explore their passion for quilting.",
   }
 ];
 

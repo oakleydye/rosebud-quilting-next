@@ -25,7 +25,7 @@ import Link from "next/link";
 export const metadata = generateMetadata({
   title: "About Rosebud Quilting - Your Complete Quilting Destination",
   description:
-    "Learn about Rosebud Quilting's story, our expert team, and commitment to providing exceptional quilting services, supplies, and education since 1999.",
+    "Learn about Rosebud Quilting's story, our expert team, and commitment to providing exceptional quilting services, supplies, and education since 2023.",
 });
 
 const milestones = [
@@ -348,12 +348,8 @@ export default function AboutPage() {
                 </h3>
                 <div className="space-y-2 text-amber-100">
                   <div className="flex justify-between">
-                    <span>Monday - Friday</span>
+                    <span>Monday - Saturday</span>
                     <span>9:00 AM - 7:00 PM</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span>Saturday</span>
-                    <span>9:00 AM - 6:00 PM</span>
                   </div>
                   <div className="flex justify-between">
                     <span>Sunday</span>
@@ -365,7 +361,9 @@ export default function AboutPage() {
                   variant="secondary"
                   className="w-full mt-6 bg-white text-amber-600 hover:bg-gray-50"
                 >
-                  Get Directions
+                  <Link href="https://goo.gl/maps/xyz123" target="_blank" className="flex items-center justify-center space-x-2">
+                    Get Directions
+                  </Link>
                 </Button>
               </div>
             </div>

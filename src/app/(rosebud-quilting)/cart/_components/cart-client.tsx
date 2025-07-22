@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
@@ -17,7 +16,7 @@ import {
   CreditCard,
   Shield
 } from 'lucide-react';
-import { useAtom } from 'jotai';
+import { useAtomValue, useSetAtom } from 'jotai';
 import {
   cartItemsAtom,
   cartItemCountAtom,
@@ -29,18 +28,17 @@ import {
   removeFromCartAtom,
   clearCartAtom
 } from '@/lib/store/cart';
-import { cn } from '@/lib/utils';
 
 export default function CartClient() {
-  const [items] = useAtom(cartItemsAtom);
-  const [itemCount] = useAtom(cartItemCountAtom);
-  const [subtotal] = useAtom(cartSubtotalAtom);
-  const [tax] = useAtom(cartTaxAtom);
-  const [shipping] = useAtom(cartShippingAtom);
-  const [total] = useAtom(cartTotalAtom);
-  const [, updateQuantity] = useAtom(updateCartQuantityAtom);
-  const [, removeItem] = useAtom(removeFromCartAtom);
-  const [, clearCart] = useAtom(clearCartAtom);
+  const items = useAtomValue(cartItemsAtom);
+  const itemCount = useAtomValue(cartItemCountAtom);
+  const subtotal = useAtomValue(cartSubtotalAtom);
+  const tax = useAtomValue(cartTaxAtom);
+  const shipping = useAtomValue(cartShippingAtom);
+  const total = useAtomValue(cartTotalAtom);
+  const updateQuantity = useSetAtom(updateCartQuantityAtom);
+  const removeItem = useSetAtom(removeFromCartAtom);
+  const clearCart = useSetAtom(clearCartAtom);
 
   const formatPrice = (price: number) => `$${price.toFixed(2)}`;
 

@@ -30,7 +30,7 @@ import {
   DialogTrigger,
 } from '@/components/ui/dialog';
 import { Textarea } from '@/components/ui/textarea';
-import { Search, Filter, Eye, Edit, MessageCircle, Phone, Mail, Loader2 } from 'lucide-react';
+import { Search, Filter, Eye, Edit, MessageCircle, Phone, Mail, Loader2, Smartphone } from 'lucide-react';
 import { ServiceRequestService } from '@/lib/services/service-request.service';
 import type { ServiceRequest } from '@/types/admin';
 
@@ -258,7 +258,7 @@ export default function ServiceRequestsPage() {
                         onValueChange={(value) => updateRequestPriority(request.id, value as ServiceRequest['priority'])}
                         disabled={updatePriorityMutation.isPending}
                       >
-                        <SelectTrigger className="w-24">
+                        <SelectTrigger className="w-28">
                           <Badge variant={priorityColors[request.priority]}>
                             {request.priority}
                           </Badge>
@@ -304,9 +304,9 @@ export default function ServiceRequestsPage() {
                         <Button variant="ghost" size="sm">
                           {request.preferredContact === 'phone' ? (
                             <Phone className="h-4 w-4" />
-                          ) : (
+                          ) : request.preferredContact === 'email' ? (
                             <Mail className="h-4 w-4" />
-                          )}
+                          ) : <Smartphone className="h-4 w-4" />}
                         </Button>
                       </div>
                     </TableCell>
