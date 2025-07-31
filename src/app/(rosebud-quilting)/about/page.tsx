@@ -52,12 +52,12 @@ const services = [
     description:
       "Professional quilting with precision and care using state-of-the-art machines.",
   },
-  {
-    icon: Award,
-    title: "Retail Shop",
-    description:
-      "Curated selection of premium fabrics, tools, patterns, and complete project kits.",
-  },
+  // {
+  //   icon: Award,
+  //   title: "Retail Shop",
+  //   description:
+  //     "Curated selection of premium fabrics, tools, patterns, and complete project kits.",
+  // },
   {
     icon: Users,
     title: "Education Programs",
@@ -158,7 +158,7 @@ export default function AboutPage() {
       {/* Stats Section */}
       <section className="py-20">
         <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-4 gap-8 max-w-4xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             {stats.map((stat, index) => (
               <div key={index} className="text-center">
                 <div className="text-4xl font-bold text-amber-600 mb-2">
@@ -181,7 +181,7 @@ export default function AboutPage() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {services.map((service, index) => (
               <Card
                 key={index}

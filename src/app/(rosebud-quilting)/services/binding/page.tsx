@@ -131,7 +131,7 @@ export default function BindingServicesPage() {
     <div className="min-h-screen">
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-purple-50 to-indigo-50 py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-10">
           <div className="text-center mb-16">
             <Badge variant="outline" className="mb-4">
               Finishing Services
@@ -384,7 +384,7 @@ export default function BindingServicesPage() {
                 Schedule Binding Service
               </Link>
             </Button>
-            <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-purple-600" asChild>
+            <Button size="lg" variant="outline" className="border-white text-primary hover:bg-white hover:text-purple-600" asChild>
               <Link href="/services">
                 View All Services
               </Link>

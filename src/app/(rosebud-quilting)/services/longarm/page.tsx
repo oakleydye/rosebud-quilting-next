@@ -20,7 +20,6 @@ const pricingTiers = [
     description: "Simple, continuous patterns across the entire quilt",
     features: [
       "Over 200 pantograph patterns",
-      "Standard batting included",
       "Basic thread colors",
       "2-week turnaround"
     ],
@@ -33,7 +32,6 @@ const pricingTiers = [
     description: "Enhanced patterns with premium thread options",
     features: [
       "Premium pantograph collection",
-      "Upgraded batting options",
       "Premium thread selection",
       "1-week turnaround",
       "Thread color consultation"
@@ -48,7 +46,6 @@ const pricingTiers = [
     features: [
       "Completely custom design",
       "Design consultation included",
-      "Premium materials",
       "Priority scheduling",
       "Digital pattern keepsake"
     ],
@@ -267,7 +264,7 @@ export default function LongarmQuiltingPage() {
                 Get Free Quote
               </Button>
               <Link href="/contact">
-                <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-blue-600">
+                <Button size="lg" variant="outline" className="border-white text-blue-600 hover:bg-white hover:text-blue-600">
                   Contact Us Today
                 </Button>
               </Link>

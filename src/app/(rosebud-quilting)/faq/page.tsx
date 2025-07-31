@@ -56,7 +56,7 @@ export default function FAQPage() {
     <div className="min-h-screen">
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-blue-50 to-indigo-50 py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-10">
           <div className="text-center mb-16">
             <Badge variant="outline" className="mb-4">
               Help & Support
@@ -177,11 +177,11 @@ export default function FAQPage() {
                 Send Us a Message
               </Link>
             </Button>
-            <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-blue-600">
+            <Button size="lg" variant="outline" className="border-white text-primary hover:bg-white hover:text-blue-600">
               <Phone className="w-5 h-5 mr-2" />
-              Call (555) 123-4567
+              Call (801) 608-7461
             </Button>
-            <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-blue-600">
+            <Button size="lg" variant="outline" className="border-white text-primary hover:bg-white hover:text-blue-600">
               <Mail className="w-5 h-5 mr-2" />
               Email Us
             </Button>

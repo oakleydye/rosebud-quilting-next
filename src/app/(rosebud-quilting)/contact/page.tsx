@@ -24,13 +24,13 @@ const contactMethods = [
     description: "Send us your questions or project details",
     action: "mailto:diana@rosebudquilting.com"
   },
-  {
-    icon: MapPin,
-    title: "Visit Our Store", 
-    detail: "572 S 690 E Hyrum, UT 84319",
-    description: "See our showroom and speak with our team",
-    action: "https://maps.google.com"
-  },
+  // {
+  //   icon: MapPin,
+  //   title: "Visit Our Store", 
+  //   detail: "572 S 690 E Hyrum, UT 84319",
+  //   description: "See our showroom and speak with our team",
+  //   action: "https://maps.google.com"
+  // },
   {
     icon: MessageCircle,
     title: "Text Us",
@@ -113,7 +113,7 @@ export default function ContactPage() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
             {contactMethods.map((method, index) => (
               <Card key={index} className="text-center hover:shadow-lg transition-shadow group cursor-pointer">
                 <CardHeader>
@@ -148,7 +148,7 @@ export default function ContactPage() {
             {/* Store Information */}
             <div className="space-y-8">
               {/* Store Hours */}
-              <Card>
+              {/* <Card>
                 <CardHeader>
                   <div className="flex items-center space-x-3">
                     <Clock className="w-6 h-6 text-cyan-600" />
@@ -165,7 +165,7 @@ export default function ContactPage() {
                     ))}
                   </div>
                 </CardContent>
-              </Card>
+              </Card> */}
 
               {/* Services */}
               <Card>
@@ -248,19 +248,19 @@ export default function ContactPage() {
               we&apos;re here to help. Contact us today to discuss your quilting needs and discover 
               how we can bring your vision to life.
             </p>
-            <div className="grid md:grid-cols-3 gap-6 max-w-2xl mx-auto">
+            <div className="grid md:grid-cols-2 gap-6 max-w-2xl mx-auto">
               <div className="text-center">
                 <Phone className="w-8 h-8 text-cyan-200 mx-auto mb-2" />
-                <div className="text-white font-medium">(555) 123-4567</div>
+                <div className="text-white font-medium">(801) 608-7461</div>
               </div>
               <div className="text-center">
                 <Mail className="w-8 h-8 text-cyan-200 mx-auto mb-2" />
-                <div className="text-white font-medium">info@rosebudquilting.com</div>
+                <div className="text-white font-medium">diana@rosebudquilting.com</div>
               </div>
-              <div className="text-center">
+              {/* <div className="text-center">
                 <MapPin className="w-8 h-8 text-cyan-200 mx-auto mb-2" />
                 <div className="text-white font-medium">123 Quilting Lane</div>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>

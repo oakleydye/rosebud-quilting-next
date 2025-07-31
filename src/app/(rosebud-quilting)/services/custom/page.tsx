@@ -105,7 +105,7 @@ export default function CustomQuiltingPage() {
     <div className="min-h-screen">
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-rose-50 to-pink-50 py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-10">
           <div className="text-center mb-16">
             <Badge variant="outline" className="mb-4">
               Custom Design Services
@@ -309,7 +309,7 @@ export default function CustomQuiltingPage() {
                 Schedule Consultation
               </Link>
             </Button>
-            <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-rose-600" asChild>
+            <Button size="lg" variant="outline" className="border-white text-primary hover:bg-white hover:text-rose-600" asChild>
               <Link href="/services">
                 View All Services
               </Link>

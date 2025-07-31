@@ -54,9 +54,10 @@ export default function Footer() {
 
           {/* Shop & Classes Links */}
           <div>
-            <h4 className="text-lg font-semibold mb-6 text-white">Shop & Learn</h4>
+            {/* <h4 className="text-lg font-semibold mb-6 text-white">Shop & Learn</h4> */}
+            <h4 className="text-lg font-semibold mb-6 text-white">Learn</h4>
             <nav className="space-y-3">
-              <Link href="/shop" className="block text-slate-300 hover:text-white transition-colors">
+              {/* <Link href="/shop" className="block text-slate-300 hover:text-white transition-colors">
                 Quilting Shop
               </Link>
               <Link href="/shop/fabrics" className="block text-slate-300 hover:text-white transition-colors">
@@ -67,7 +68,7 @@ export default function Footer() {
               </Link>
               <Link href="/shop/notions" className="block text-slate-300 hover:text-white transition-colors">
                 Tools & Notions
-              </Link>
+              </Link> */}
               <Link href="/classes" className="block text-slate-300 hover:text-white transition-colors">
                 Quilting Classes
               </Link>

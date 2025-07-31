@@ -4,11 +4,11 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Calendar, Clock, Users, Star, BookOpen, ArrowRight } from "lucide-react";
+import { Calendar, Clock, Users, Star, BookOpen, ArrowRight, Bell } from "lucide-react";
 
 export const metadata = generateMetadata({
-  title: "Quilting Classes & Workshops - Learn from Experts",
-  description: "Learn quilting from experienced instructors. Beginner to advanced classes, workshops, and private lessons. Small class sizes and hands-on instruction.",
+  title: "Quilting Classes & Workshops - Join Our Waitlist",
+  description: "Join our waitlist for quilting classes! From beginner to advanced instruction with experienced teachers. Get notified when new sessions are scheduled.",
 });
 
 const classLevels = [
@@ -20,7 +20,7 @@ const classLevels = [
     icon: BookOpen,
     duration: "6 weeks",
     classSize: "8 students max",
-    nextStart: "March 15, 2025",
+    nextStart: "Join Waitlist",
     price: "$180",
     features: [
       "Basic cutting techniques",
@@ -29,7 +29,8 @@ const classLevels = [
       "Tools & supplies guidance",
       "Take-home materials included"
     ],
-    badge: "Most Popular"
+    badge: "Most Popular",
+    waitlistCount: "12+ interested"
   },
   {
     title: "Intermediate Classes",
@@ -39,7 +40,7 @@ const classLevels = [
     icon: Star,
     duration: "8 weeks",
     classSize: "6 students max",
-    nextStart: "March 22, 2025",
+    nextStart: "Join Waitlist",
     price: "$240",
     features: [
       "Complex piecing patterns",
@@ -48,7 +49,8 @@ const classLevels = [
       "Binding techniques",
       "Pattern reading skills"
     ],
-    badge: "Skill Building"
+    badge: "Skill Building",
+    waitlistCount: "8+ interested"
   },
   {
     title: "Advanced Techniques",
@@ -58,7 +60,7 @@ const classLevels = [
     icon: Users,
     duration: "10 weeks",
     classSize: "4 students max",
-    nextStart: "April 5, 2025", 
+    nextStart: "Join Waitlist", 
     price: "$320",
     features: [
       "Paper piecing mastery",
@@ -67,7 +69,8 @@ const classLevels = [
       "Design development",
       "Portfolio creation"
     ],
-    badge: "Expert Level"
+    badge: "Expert Level",
+    waitlistCount: "5+ interested"
   }
 ];
 
@@ -75,32 +78,35 @@ const upcomingWorkshops = [
   {
     title: "Modern Color Theory",
     instructor: "Sarah Mitchell",
-    date: "February 28, 2025",
-    time: "10:00 AM - 4:00 PM",
+    date: "Coming Soon",
+    time: "TBD",
     price: "$95",
-    spots: "3 spots left",
+    spots: "Join Waitlist",
     image: "/images/masonryGrid/christmas_angle.webp",
-    description: "Explore contemporary color combinations and create stunning modern quilts."
+    description: "Explore contemporary color combinations and create stunning modern quilts.",
+    waitlistCount: "6+ interested"
   },
   {
     title: "Hand Appliqué Workshop", 
     instructor: "Maria Rodriguez",
-    date: "March 8, 2025",
-    time: "9:00 AM - 3:00 PM", 
+    date: "Coming Soon",
+    time: "TBD", 
     price: "$85",
-    spots: "6 spots available",
+    spots: "Join Waitlist",
     image: "/images/masonryGrid/leaves.webp",
-    description: "Learn traditional hand appliqué techniques with expert guidance."
+    description: "Learn traditional hand appliqué techniques with expert guidance.",
+    waitlistCount: "4+ interested"
   },
   {
     title: "Longarm Quilting Demo",
     instructor: "Jennifer Thompson",
-    date: "March 15, 2025", 
-    time: "1:00 PM - 4:00 PM",
+    date: "Coming Soon", 
+    time: "TBD",
     price: "$45",
-    spots: "8 spots available", 
+    spots: "Join Waitlist", 
     image: "/images/masonryGrid/studio.webp",
-    description: "See professional longarm quilting in action and ask questions."
+    description: "See professional longarm quilting in action and ask questions.",
+    waitlistCount: "10+ interested"
   }
 ];
 
@@ -131,22 +137,22 @@ export default function ClassesPage() {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <Badge className="mb-4 bg-green-100 text-green-800 hover:bg-green-200">
-              Learn from the Best
+              Join Our Waitlist
             </Badge>
             <h1 className="text-5xl md:text-6xl mb-6 mt-4 bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent overflow-visible">
               Quilting Classes & Workshops
             </h1>
             <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed">
-              Discover the joy of quilting with expert instruction in a supportive, creative environment. 
-              From beginner fundamentals to advanced artistry, we have the perfect class for your journey.
+              We're developing an amazing quilting education program! Join our waitlist to be the first to know 
+              when we launch classes. From beginner fundamentals to advanced artistry, we'll have the perfect class for your journey.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" className="bg-green-600 hover:bg-green-700">
-                <Calendar className="mr-2 h-4 w-4" />
-                View Schedule
+                <Bell className="mr-2 h-4 w-4" />
+                Join Waitlist
               </Button>
               <Button size="lg" variant="outline">
-                Meet Our Instructors
+                Learn More
               </Button>
             </div>
           </div>
@@ -159,7 +165,7 @@ export default function ClassesPage() {
           <div className="max-w-2xl mx-auto text-center mb-16">
             <h2 className="text-4xl font-bold mb-4">Find Your Perfect Class</h2>
             <p className="text-gray-600 text-lg">
-              Structured learning paths designed to build your skills progressively
+              Join our waitlist for structured learning paths designed to build your skills progressively
             </p>
           </div>
 
@@ -197,8 +203,8 @@ export default function ClassesPage() {
                       {level.classSize}
                     </div>
                     <div className="flex items-center">
-                      <Calendar className="w-4 h-4 mr-2" />
-                      Starts {level.nextStart}
+                      <Bell className="w-4 h-4 mr-2" />
+                      {level.waitlistCount}
                     </div>
                     <div className="font-semibold text-green-600 text-base">
                       {level.price}
@@ -214,7 +220,7 @@ export default function ClassesPage() {
                   </ul>
                   <Link href={level.href}>
                     <Button className="w-full bg-green-600 hover:bg-green-700">
-                      Enroll Now
+                      Join Waitlist
                       <ArrowRight className="ml-2 h-4 w-4" />
                     </Button>
                   </Link>
@@ -231,7 +237,7 @@ export default function ClassesPage() {
           <div className="max-w-2xl mx-auto text-center mb-16">
             <h2 className="text-4xl font-bold mb-4">Upcoming Workshops</h2>
             <p className="text-gray-600 text-lg">
-              Special one-day workshops and intensive learning experiences
+              Join our waitlist for special one-day workshops and intensive learning experiences
             </p>
           </div>
 
@@ -246,7 +252,7 @@ export default function ClassesPage() {
                     className="object-cover"
                   />
                   <Badge className="absolute top-3 right-3 bg-green-600 text-white">
-                    {workshop.spots}
+                    {workshop.waitlistCount}
                   </Badge>
                 </div>
                 <CardHeader>
@@ -273,7 +279,7 @@ export default function ClassesPage() {
                     </div>
                   </div>
                   <Button className="w-full bg-green-600 hover:bg-green-700">
-                    Register Now
+                    Join Waitlist
                   </Button>
                 </CardContent>
               </Card>
@@ -292,7 +298,8 @@ export default function ClassesPage() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+          {/* <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto"> */}
+          <div className="grid gap-8 max-w-5xl mx-auto">
             {instructors.map((instructor, index) => (
               <Card key={index} className="text-center hover:shadow-lg transition-shadow">
                 <CardHeader>
@@ -348,17 +355,17 @@ export default function ClassesPage() {
               Ready to Start Learning?
             </h2>
             <p className="text-green-100 text-lg mb-8 leading-relaxed">
-              Join our welcoming community of quilters and discover the joy of creating beautiful, 
-              handmade treasures. Whether you&apos;re a complete beginner or looking to refine your skills, 
-              we have the perfect class waiting for you.
+              Join our waitlist to be the first to know when we launch our quilting classes! 
+              Whether you&apos;re a complete beginner or looking to refine your skills, 
+              we'll have the perfect class waiting for you.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" variant="secondary" className="bg-white text-green-600 hover:bg-gray-50">
-                <Calendar className="mr-2 h-4 w-4" />
-                View Full Schedule
+                <Bell className="mr-2 h-4 w-4" />
+                Join Waitlist
               </Button>
               <Link href="/contact">
-                <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-green-600">
+                <Button size="lg" variant="outline" className="border-white text-green-600 hover:bg-white hover:text-green-600">
                   Contact Us
                 </Button>
               </Link>

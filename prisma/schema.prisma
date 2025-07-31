@@ -101,3 +101,35 @@ enum Priority {
 
   @@map("priority")
 }
+
+model ClassWaitlist {
+  id              String            @id @default(cuid())
+  firstName       String
+  lastName        String
+  email           String
+  phoneNumber     String?
+  classLevel      ClassLevel
+  preferredContact PreferredContact @default(EMAIL)
+  message         String?
+  notifyWhenAvailable Boolean        @default(true)
+  status          WaitlistStatus   @default(ACTIVE)
+  priority        Int              @default(1)
+  signupDate      DateTime         @default(now())
+  contactedDate   DateTime?
+  notes           String?
+  createdAt       DateTime         @default(now())
+  updatedAt       DateTime         @updatedAt
+
+  @@unique([email, classLevel])
+  @@map("class_waitlists")
+}
+
+enum WaitlistStatus {
+  ACTIVE
+  CONTACTED
+  ENROLLED
+  DECLINED
+  EXPIRED
+
+  @@map("waitlist_status")
+}

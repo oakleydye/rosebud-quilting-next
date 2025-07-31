@@ -60,37 +60,37 @@ const navigation = [
       },
     ],
   },
-  {
-    name: "Shop",
-    href: "/shop",
-    children: [
-      {
-        name: "All Products",
-        href: "/shop",
-        description: "Browse our complete quilting shop",
-      },
-      {
-        name: "Fabrics",
-        href: "/shop/fabrics",
-        description: "Premium quilting fabrics and collections",
-      },
-      {
-        name: "Notions & Tools",
-        href: "/shop/notions",
-        description: "Essential quilting tools and supplies",
-      },
-      {
-        name: "Patterns",
-        href: "/shop/patterns",
-        description: "Quilt patterns for all skill levels",
-      },
-      {
-        name: "Kits",
-        href: "/shop/kits",
-        description: "Complete quilting project kits",
-      },
-    ],
-  },
+  // {
+  //   name: "Shop",
+  //   href: "/shop",
+  //   children: [
+  //     {
+  //       name: "All Products",
+  //       href: "/shop",
+  //       description: "Browse our complete quilting shop",
+  //     },
+  //     {
+  //       name: "Fabrics",
+  //       href: "/shop/fabrics",
+  //       description: "Premium quilting fabrics and collections",
+  //     },
+  //     {
+  //       name: "Notions & Tools",
+  //       href: "/shop/notions",
+  //       description: "Essential quilting tools and supplies",
+  //     },
+  //     {
+  //       name: "Patterns",
+  //       href: "/shop/patterns",
+  //       description: "Quilt patterns for all skill levels",
+  //     },
+  //     {
+  //       name: "Kits",
+  //       href: "/shop/kits",
+  //       description: "Complete quilting project kits",
+  //     },
+  //   ],
+  // },
   {
     name: "Classes",
     href: "/classes",
@@ -265,7 +265,7 @@ export function Header() {
               </Link>
 
               {/* Cart Icon */}
-              <Button
+              {/* <Button
                 variant="ghost"
                 size="sm"
                 onClick={() => toggleCart()}
@@ -278,7 +278,7 @@ export function Header() {
                   </span>
                 )}
                 <span className="sr-only">Shopping cart</span>
-              </Button>
+              </Button> */}
             </div>
 
             {/* Mobile Navigation */}
@@ -322,7 +322,7 @@ export function Header() {
                     </Button>
                   </Link>
 
-                  <Button
+                  {/* <Button
                     variant="outline"
                     onClick={() => {
                       toggleCart();
@@ -337,7 +337,7 @@ export function Header() {
                         {itemCount}
                       </span>
                     )}
-                  </Button>
+                  </Button> */}
                 </div>
               </SheetContent>
             </Sheet>

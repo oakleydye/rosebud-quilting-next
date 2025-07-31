@@ -128,7 +128,7 @@ export default function QuiltRepairPage() {
     <div className="min-h-screen">
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-emerald-50 to-teal-50 py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-10">
           <div className="text-center mb-16">
             <Badge variant="outline" className="mb-4">
               Restoration & Repair
@@ -364,7 +364,7 @@ export default function QuiltRepairPage() {
                 Schedule Assessment
               </Link>
             </Button>
-            <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-emerald-600" asChild>
+            <Button size="lg" variant="outline" className="border-white text-primary hover:bg-white hover:text-emerald-600" asChild>
               <Link href="/services">
                 View All Services
               </Link>

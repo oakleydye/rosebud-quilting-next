@@ -1,25 +1,13 @@
 "use server";
 
 import { NextRequest, NextResponse } from "next/server";
-import sgMail from "@sendgrid/mail";
 import { prisma } from "@/lib/prisma";
-
-sgMail.setApiKey(process.env.SENDGRID_API_KEY!);
+import { EmailService } from "@/lib/email";
 
 export async function POST(request: NextRequest) {
   try {
     const { subject, message } = await request.json();
     
-    // Send email (original functionality)
-    const msg = {
-      to: process.env.PRIMARY_CONTACT_EMAIL!,
-      from: process.env.SENDGRID_FROM_EMAIL!,
-      subject,
-      text: message,
-    };
-
-    await sgMail.send(msg);
-
     // Parse the message to extract individual fields for database storage
     let parsedData;
     try {
@@ -37,7 +25,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Save to database with proper field mapping
-    await prisma.serviceRequest.create({
+    const serviceRequest = await prisma.serviceRequest.create({
       data: {
         firstName: parsedData.firstName || 'Unknown',
         lastName: parsedData.lastName || 'Customer', 
@@ -57,6 +45,43 @@ export async function POST(request: NextRequest) {
         priority: 'MEDIUM',
       },
     });
+
+    // Send confirmation email to customer (if we have a valid email)
+    if (parsedData.email && parsedData.email !== 'noreply@example.com') {
+      try {
+        await EmailService.sendServiceRequestConfirmation({
+          to: parsedData.email,
+          firstName: parsedData.firstName || 'Customer',
+          lastName: parsedData.lastName || '',
+          inquiryType: parsedData.inquiryType || 'General',
+          serviceCategory: parsedData.serviceCategory,
+          requestId: serviceRequest.id,
+        });
+      } catch (emailError) {
+        console.error("Failed to send confirmation email:", emailError);
+        // Don't fail the request if email fails
+      }
+    }
+
+    // Send admin notification email
+    try {
+      await EmailService.sendServiceRequestAdminNotification({
+        firstName: parsedData.firstName || 'Unknown',
+        lastName: parsedData.lastName || 'Customer',
+        email: parsedData.email || 'noreply@example.com',
+        phoneNumber: parsedData.phoneNumber,
+        inquiryType: parsedData.inquiryType || 'General',
+        serviceCategory: parsedData.serviceCategory,
+        shopCategory: parsedData.shopCategory,
+        classLevel: parsedData.classLevel,
+        message: parsedData.message || message,
+        requestId: serviceRequest.id,
+        preferredContact: parsedData.preferredContact || 'email',
+      });
+    } catch (emailError) {
+      console.error("Failed to send admin notification:", emailError);
+      // Don't fail the request if email fails
+    }
 
     return NextResponse.json(
       { success: true, message: "Email sent and request saved successfully!" },

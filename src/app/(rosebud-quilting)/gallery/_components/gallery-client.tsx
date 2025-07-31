@@ -267,7 +267,7 @@ export default function GalleryClient() {
                 Explore Our Services
               </a>
             </Button>
-            <Button size="lg" variant="outline" className="text-white border-white hover:bg-white hover:text-purple-600" asChild>
+            <Button size="lg" variant="outline" className="text-primary border-white hover:bg-white hover:text-purple-600" asChild>
               <a href="/contact">
                 Get in Touch
               </a>

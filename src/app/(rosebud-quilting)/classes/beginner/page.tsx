@@ -4,42 +4,13 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Calendar, Clock, Users, Star, BookOpen, ArrowRight, CheckCircle, MapPin } from "lucide-react";
+import { Calendar, Clock, Users, Star, BookOpen, ArrowRight, CheckCircle, MapPin, Bell } from "lucide-react";
+import { WaitlistSignup } from "@/components/classes/waitlist-signup";
 
 export const metadata = generateMetadata({
-  title: "Beginner Quilting Classes - Perfect Introduction to Quilting",
-  description: "Start your quilting journey with our comprehensive beginner classes. Learn fundamental techniques, complete your first quilt, and build confidence with expert instruction.",
+  title: "Beginner Quilting Classes - Join Our Waitlist",
+  description: "Join our waitlist for comprehensive beginner quilting classes. Learn fundamental techniques and complete your first quilt with expert instruction.",
 });
-
-const upcomingSessions = [
-  {
-    startDate: "March 15, 2025",
-    endDate: "April 26, 2025",
-    dayOfWeek: "Saturdays",
-    time: "10:00 AM - 1:00 PM",
-    spotsAvailable: 3,
-    totalSpots: 8,
-    instructor: "Diana Dye"
-  },
-  {
-    startDate: "May 10, 2025", 
-    endDate: "June 21, 2025",
-    dayOfWeek: "Saturdays",
-    time: "10:00 AM - 1:00 PM",
-    spotsAvailable: 7,
-    totalSpots: 8,
-    instructor: "Diana Dye"
-  },
-  {
-    startDate: "July 12, 2025",
-    endDate: "August 23, 2025", 
-    dayOfWeek: "Saturdays",
-    time: "10:00 AM - 1:00 PM",
-    spotsAvailable: 8,
-    totalSpots: 8,
-    instructor: "Diana Dye"
-  }
-];
 
 const weeklySchedule = [
   {
@@ -141,23 +112,24 @@ export default function BeginnerClassesPage() {
     <div className="min-h-screen">
       {/* Hero Section */}
       <section className="relative py-20 bg-gradient-to-br from-blue-50 to-indigo-100">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-4 mt-10">
           <div className="grid lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
             <div>
               <Badge className="mb-4 bg-blue-100 text-blue-800 hover:bg-blue-200">
-                Perfect for Beginners
+                Join Our Waitlist
               </Badge>
               <h1 className="text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
                 Beginner Quilting Classes
               </h1>
               <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-                Take your first step into the wonderful world of quilting! Our comprehensive 6-week beginner program 
-                will guide you through creating your very first quilt while building a strong foundation in quilting fundamentals.
+                Get ready for an amazing quilting journey! We're developing a comprehensive 6-week beginner program 
+                that will guide you through creating your very first quilt while building a strong foundation in quilting fundamentals.
+                Join our waitlist to be the first to know when classes launch!
               </p>
               <div className="space-y-4 mb-8">
                 <div className="flex items-center text-gray-700">
                   <Clock className="w-5 h-5 mr-3 text-blue-600" />
-                  <span>6 weeks • 3 hours per session</span>
+                  <span>6 weeks • 3 hours per session (planned)</span>
                 </div>
                 <div className="flex items-center text-gray-700">
                   <Users className="w-5 h-5 mr-3 text-blue-600" />
@@ -170,11 +142,11 @@ export default function BeginnerClassesPage() {
               </div>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button size="lg" className="bg-blue-600 hover:bg-blue-700">
-                  <Calendar className="mr-2 h-4 w-4" />
-                  Enroll Now - $180
+                  <Bell className="mr-2 h-4 w-4" />
+                  Join Waitlist - $180 (when launched)
                 </Button>
                 <Button size="lg" variant="outline">
-                  Download Class Info
+                  Learn More
                 </Button>
               </div>
             </div>
@@ -196,48 +168,61 @@ export default function BeginnerClassesPage() {
         </div>
       </section>
 
-      {/* Upcoming Sessions */}
+      {/* Waitlist Signup */}
       <section className="py-20">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-4xl font-bold text-center mb-4">Upcoming Sessions</h2>
-            <p className="text-gray-600 text-center mb-12">Choose the session that works best for your schedule</p>
+            <h2 className="text-4xl font-bold text-center mb-4">Join the Waitlist</h2>
+            <p className="text-gray-600 text-center mb-12">
+              Be the first to know when we launch our beginner quilting classes!
+            </p>
             
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {upcomingSessions.map((session, index) => (
-                <Card key={index} className="hover:shadow-lg transition-shadow">
-                  <CardHeader>
-                    <div className="flex items-center justify-between mb-2">
-                      <Badge variant={session.spotsAvailable <= 3 ? "destructive" : "secondary"}>
-                        {session.spotsAvailable} spots left
-                      </Badge>
-                      <div className="text-sm text-gray-600">{session.spotsAvailable}/{session.totalSpots} available</div>
+            <div className="grid lg:grid-cols-2 gap-8 items-start">
+              <div>
+                <WaitlistSignup classLevel="beginner" className="mb-6" />
+              </div>
+              <div className="space-y-6">
+                <Card className="border-blue-200 bg-blue-50">
+                  <CardContent className="pt-6">
+                    <div className="space-y-4">
+                      <div className="flex items-center">
+                        <Bell className="w-5 h-5 mr-3 text-blue-600" />
+                        <span className="font-medium">12+ people interested</span>
+                      </div>
+                      <p className="text-sm text-gray-700">
+                        Join our growing community of future quilters! The more interest we receive, 
+                        the sooner we can launch these classes.
+                      </p>
                     </div>
-                    <CardTitle className="text-lg">
-                      {session.startDate} - {session.endDate}
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="space-y-3 mb-4">
-                      <div className="flex items-center text-sm text-gray-600">
-                        <Calendar className="w-4 h-4 mr-2" />
-                        {session.dayOfWeek}
-                      </div>
-                      <div className="flex items-center text-sm text-gray-600">
-                        <Clock className="w-4 h-4 mr-2" />
-                        {session.time}
-                      </div>
-                      <div className="flex items-center text-sm text-gray-600">
-                        <BookOpen className="w-4 h-4 mr-2" />
-                        Instructor: {session.instructor}
-                      </div>
-                    </div>
-                    <Button className="w-full bg-blue-600 hover:bg-blue-700">
-                      {session.spotsAvailable <= 3 ? "Reserve Your Spot" : "Enroll Now"}
-                    </Button>
                   </CardContent>
                 </Card>
-              ))}
+                
+                <Card>
+                  <CardHeader>
+                    <CardTitle className="text-lg">Why Join the Waitlist?</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <ul className="space-y-2">
+                      <li className="flex items-start">
+                        <CheckCircle className="w-4 h-4 mr-3 mt-0.5 text-blue-600 flex-shrink-0" />
+                        <span className="text-sm">First access to class enrollment</span>
+                      </li>
+                      <li className="flex items-start">
+                        <CheckCircle className="w-4 h-4 mr-3 mt-0.5 text-blue-600 flex-shrink-0" />
+                        <span className="text-sm">Early bird pricing when available</span>
+                      </li>
+                      <li className="flex items-start">
+                        <CheckCircle className="w-4 h-4 mr-3 mt-0.5 text-blue-600 flex-shrink-0" />
+                        <span className="text-sm">Updates on class development</span>
+                      </li>
+                      <li className="flex items-start">
+                        <CheckCircle className="w-4 h-4 mr-3 mt-0.5 text-blue-600 flex-shrink-0" />
+                        <span className="text-sm">No commitment required</span>
+                      </li>
+                    </ul>
+                  </CardContent>
+                </Card>
+              </div>
             </div>
           </div>
         </div>
@@ -399,16 +384,16 @@ export default function BeginnerClassesPage() {
               Ready to Start Your Quilting Journey?
             </h2>
             <p className="text-blue-100 text-lg mb-8 leading-relaxed">
-              Join thousands of students who have discovered the joy of quilting in our welcoming, supportive environment. 
-              Your first quilt is waiting to be created!
+              Join our waitlist to be part of an amazing quilting community that's about to launch! 
+              Your first quilt adventure is just around the corner!
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" variant="secondary" className="bg-white text-blue-600 hover:bg-gray-50">
-                <Calendar className="mr-2 h-4 w-4" />
-                Enroll in Next Session
+                <Bell className="mr-2 h-4 w-4" />
+                Join Waitlist Now
               </Button>
               <Link href="/contact">
-                <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-blue-600">
+                <Button size="lg" variant="outline" className="border-white text-blue-600 hover:bg-white hover:text-blue-600">
                   Ask Questions
                 </Button>
               </Link>

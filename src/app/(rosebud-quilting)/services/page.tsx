@@ -51,7 +51,7 @@ const services = [
 ];
 
 const whyChooseUs = [
-  "25+ years of quilting experience",
+  "15+ years of quilting experience",
   "State-of-the-art longarm machines",
   "Quick turnaround times",
   "Satisfaction guarantee",
@@ -182,7 +182,7 @@ export default function ServicesPage() {
                 Schedule Consultation
               </Button>
               <Link href="/contact">
-                <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-rose-600">
+                <Button size="lg" variant="outline" className="border-white text-rose-600 hover:bg-white hover:text-rose-600">
                   Contact Us Today
                 </Button>
               </Link>
