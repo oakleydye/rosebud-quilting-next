@@ -2,52 +2,80 @@ import { generateMetadata } from "@/lib/metadata";
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Clock, Star, ArrowRight, CheckCircle } from "lucide-react";
 
 export const metadata = generateMetadata({
   title: "Professional Quilting Services",
-  description: "Complete quilting services including longarm quilting, custom designs, repair, and binding. Expert craftsmanship for your precious quilts.",
+  description:
+    "Complete quilting services including longarm quilting, custom designs, repair, and binding. Expert craftsmanship for your precious quilts.",
 });
 
 const services = [
   {
     title: "Longarm Quilting",
     href: "/services/longarm",
-    description: "Professional longarm quilting services with precision and care",
+    description:
+      "Professional longarm quilting services with precision and care",
     image: "/images/masonryGrid/studio.webp",
-    features: ["Edge-to-edge quilting", "Custom pantographs", "Fast turnaround", "All quilt sizes"],
+    features: [
+      "Edge-to-edge quilting",
+      "Custom pantographs",
+      "Fast turnaround",
+      "All quilt sizes",
+    ],
     startingPrice: "$0.015/sq inch",
-    badge: "Most Popular"
+    badge: "Most Popular",
   },
   {
     title: "Custom Quilting",
     href: "/services/custom",
     description: "Personalized quilting designs tailored to your unique vision",
     image: "/images/masonryGrid/demi_flower.webp",
-    features: ["One-of-a-kind designs", "Digitized patterns", "Consultation included", "Heirloom quality"],
+    features: [
+      "One-of-a-kind designs",
+      "Digitized patterns",
+      "Consultation included",
+      "Heirloom quality",
+    ],
     startingPrice: "$0.025/sq inch",
-    badge: "Premium"
+    badge: "Premium",
   },
   {
     title: "Quilt Repair",
     href: "/services/repair",
     description: "Expert restoration and repair for your treasured quilts",
     image: "/images/masonryGrid/leaves.webp",
-    features: ["Damage assessment", "Color matching", "Historical preservation", "Free estimates"],
+    features: [
+      "Damage assessment",
+      "Color matching",
+      "Historical preservation",
+      "Free estimates",
+    ],
     startingPrice: "$50/hour",
-    badge: "Restoration"
+    badge: "Restoration",
   },
   {
     title: "Binding Services",
     href: "/services/binding",
     description: "Professional quilt binding and finishing touches",
     image: "/images/masonryGrid/pink_folded.webp",
-    features: ["Machine binding", "Hand binding", "Bias tape creation", "Perfect corners"],
+    features: [
+      "Machine binding",
+      "Hand binding",
+      "Bias tape creation",
+      "Perfect corners",
+    ],
     startingPrice: "$0.75/inch",
-    badge: "Finishing"
-  }
+    badge: "Finishing",
+  },
 ];
 
 const whyChooseUs = [
@@ -56,7 +84,7 @@ const whyChooseUs = [
   "Quick turnaround times",
   "Satisfaction guarantee",
   "Free consultations",
-  "Pickup and delivery available"
+  "Pickup and delivery available",
 ];
 
 export default function ServicesPage() {
@@ -73,13 +101,16 @@ export default function ServicesPage() {
               Expert Quilting Services
             </h1>
             <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed">
-              From precision longarm quilting to custom designs and restoration, we bring decades of expertise 
-              to every project. Your quilts deserve the finest care and attention to detail.
+              From precision longarm quilting to custom designs and restoration,
+              we bring decades of expertise to every project. Your quilts
+              deserve the finest care and attention to detail.
             </p>
-            <Button size="lg" className="bg-rose-600 hover:bg-rose-700">
-              Schedule Consultation
-              <ArrowRight className="ml-2 h-4 w-4" />
-            </Button>
+            <Link href="/contact">
+              <Button size="lg" className="bg-rose-600 hover:bg-rose-700">
+                Schedule Consultation
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Button>
+            </Link>
           </div>
         </div>
       </section>
@@ -96,7 +127,10 @@ export default function ServicesPage() {
 
           <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
             {services.map((service, index) => (
-              <Card key={service.title} className="group hover:shadow-xl transition-all duration-300 overflow-hidden">
+              <Card
+                key={service.title}
+                className="group hover:shadow-xl transition-all duration-300 overflow-hidden"
+              >
                 <div className="relative h-48 overflow-hidden">
                   <Image
                     src={service.image}
@@ -115,15 +149,22 @@ export default function ServicesPage() {
                     <CardTitle className="text-2xl">{service.title}</CardTitle>
                     <div className="text-right">
                       <div className="text-sm text-gray-500">Starting at</div>
-                      <div className="font-semibold text-rose-600">{service.startingPrice}</div>
+                      <div className="font-semibold text-rose-600">
+                        {service.startingPrice}
+                      </div>
                     </div>
                   </div>
-                  <CardDescription className="text-base">{service.description}</CardDescription>
+                  <CardDescription className="text-base">
+                    {service.description}
+                  </CardDescription>
                 </CardHeader>
                 <CardContent>
                   <div className="space-y-2 mb-6">
                     {service.features.map((feature, featureIndex) => (
-                      <div key={featureIndex} className="flex items-center text-sm text-gray-600">
+                      <div
+                        key={featureIndex}
+                        className="flex items-center text-sm text-gray-600"
+                      >
                         <CheckCircle className="w-4 h-4 text-green-500 mr-2 flex-shrink-0" />
                         {feature}
                       </div>
@@ -147,7 +188,9 @@ export default function ServicesPage() {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="text-4xl font-bold mb-4">Why Choose Rosebud Quilting?</h2>
+              <h2 className="text-4xl font-bold mb-4">
+                Why Choose Rosebud Quilting?
+              </h2>
               <p className="text-gray-600 text-lg">
                 Experience the difference that expertise and passion make
               </p>
@@ -155,7 +198,10 @@ export default function ServicesPage() {
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {whyChooseUs.map((reason, index) => (
-                <div key={index} className="flex items-center p-4 bg-white rounded-lg shadow-sm">
+                <div
+                  key={index}
+                  className="flex items-center p-4 bg-white rounded-lg shadow-sm"
+                >
                   <Star className="w-5 h-5 text-yellow-500 mr-3 flex-shrink-0" />
                   <span className="text-gray-700">{reason}</span>
                 </div>
@@ -173,16 +219,27 @@ export default function ServicesPage() {
               Ready to Get Started?
             </h2>
             <p className="text-rose-100 text-lg mb-8 leading-relaxed">
-              Contact us today for a free consultation and quote. We&apos;re here to help bring your quilting vision to life 
-              with the highest quality craftsmanship and personalized service.
+              Contact us today for a free consultation and quote. We&apos;re
+              here to help bring your quilting vision to life with the highest
+              quality craftsmanship and personalized service.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" variant="secondary" className="bg-white text-rose-600 hover:bg-gray-50">
-                <Clock className="mr-2 h-4 w-4" />
-                Schedule Consultation
-              </Button>
               <Link href="/contact">
-                <Button size="lg" variant="outline" className="border-white text-rose-600 hover:bg-white hover:text-rose-600">
+                <Button
+                  size="lg"
+                  variant="secondary"
+                  className="bg-white text-rose-600 hover:bg-gray-50"
+                >
+                  <Clock className="mr-2 h-4 w-4" />
+                  Schedule Consultation
+                </Button>
+              </Link>
+              <Link href="/contact">
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="border-white text-rose-600 hover:bg-white hover:text-rose-600"
+                >
                   Contact Us Today
                 </Button>
               </Link>

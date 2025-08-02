@@ -2,13 +2,28 @@ import { generateMetadata } from "@/lib/metadata";
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Calendar, Clock, Users, Star, BookOpen, ArrowRight, Bell } from "lucide-react";
+import {
+  Calendar,
+  Clock,
+  Users,
+  Star,
+  BookOpen,
+  ArrowRight,
+  Bell,
+} from "lucide-react";
 
 export const metadata = generateMetadata({
   title: "Quilting Classes & Workshops - Join Our Waitlist",
-  description: "Join our waitlist for quilting classes! From beginner to advanced instruction with experienced teachers. Get notified when new sessions are scheduled.",
+  description:
+    "Join our waitlist for quilting classes! From beginner to advanced instruction with experienced teachers. Get notified when new sessions are scheduled.",
 });
 
 const classLevels = [
@@ -24,17 +39,17 @@ const classLevels = [
     price: "$180",
     features: [
       "Basic cutting techniques",
-      "Piecing fundamentals", 
+      "Piecing fundamentals",
       "First quilt project",
       "Tools & supplies guidance",
-      "Take-home materials included"
+      "Take-home materials included",
     ],
     badge: "Most Popular",
-    waitlistCount: "12+ interested"
+    waitlistCount: "12+ interested",
   },
   {
     title: "Intermediate Classes",
-    href: "/classes/intermediate", 
+    href: "/classes/intermediate",
     description: "Build upon your skills with advanced techniques",
     image: "/images/masonryGrid/demi_flower.webp",
     icon: Star,
@@ -47,10 +62,10 @@ const classLevels = [
       "Color theory & design",
       "Machine quilting basics",
       "Binding techniques",
-      "Pattern reading skills"
+      "Pattern reading skills",
     ],
     badge: "Skill Building",
-    waitlistCount: "8+ interested"
+    waitlistCount: "8+ interested",
   },
   {
     title: "Advanced Techniques",
@@ -60,18 +75,18 @@ const classLevels = [
     icon: Users,
     duration: "10 weeks",
     classSize: "4 students max",
-    nextStart: "Join Waitlist", 
+    nextStart: "Join Waitlist",
     price: "$320",
     features: [
       "Paper piecing mastery",
       "Appliqué techniques",
       "Free-motion quilting",
       "Design development",
-      "Portfolio creation"
+      "Portfolio creation",
     ],
     badge: "Expert Level",
-    waitlistCount: "5+ interested"
-  }
+    waitlistCount: "5+ interested",
+  },
 ];
 
 const upcomingWorkshops = [
@@ -83,31 +98,34 @@ const upcomingWorkshops = [
     price: "$95",
     spots: "Join Waitlist",
     image: "/images/masonryGrid/christmas_angle.webp",
-    description: "Explore contemporary color combinations and create stunning modern quilts.",
-    waitlistCount: "6+ interested"
+    description:
+      "Explore contemporary color combinations and create stunning modern quilts.",
+    waitlistCount: "6+ interested",
   },
   {
-    title: "Hand Appliqué Workshop", 
+    title: "Hand Appliqué Workshop",
     instructor: "Maria Rodriguez",
     date: "Coming Soon",
-    time: "TBD", 
+    time: "TBD",
     price: "$85",
     spots: "Join Waitlist",
     image: "/images/masonryGrid/leaves.webp",
-    description: "Learn traditional hand appliqué techniques with expert guidance.",
-    waitlistCount: "4+ interested"
+    description:
+      "Learn traditional hand appliqué techniques with expert guidance.",
+    waitlistCount: "4+ interested",
   },
   {
     title: "Longarm Quilting Demo",
     instructor: "Jennifer Thompson",
-    date: "Coming Soon", 
+    date: "Coming Soon",
     time: "TBD",
     price: "$45",
-    spots: "Join Waitlist", 
+    spots: "Join Waitlist",
     image: "/images/masonryGrid/studio.webp",
-    description: "See professional longarm quilting in action and ask questions.",
-    waitlistCount: "10+ interested"
-  }
+    description:
+      "See professional longarm quilting in action and ask questions.",
+    waitlistCount: "10+ interested",
+  },
 ];
 
 const instructors = [
@@ -117,7 +135,7 @@ const instructors = [
     experience: "15 years of quilting and teaching",
     specialty: "Artistic quilting and design",
     bio: "Diana is passionate about sharing her love of quilting and helping students find their unique style. With over 15 years of experience, she specializes in artistic quilting techniques and design principles. Diana believes in creating a supportive, creative environment where students can explore their passion for quilting.",
-  }
+  },
 ];
 
 const benefits = [
@@ -125,8 +143,8 @@ const benefits = [
   "All skill levels welcome",
   "Take-home materials included",
   "Flexible makeup sessions",
-  "10% store discount for students", 
-  "Free pattern library access"
+  "10% store discount for students",
+  "Free pattern library access",
 ];
 
 export default function ClassesPage() {
@@ -143,35 +161,45 @@ export default function ClassesPage() {
               Quilting Classes & Workshops
             </h1>
             <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed">
-              We're developing an amazing quilting education program! Join our waitlist to be the first to know 
-              when we launch classes. From beginner fundamentals to advanced artistry, we'll have the perfect class for your journey.
+              We're developing an amazing quilting education program! Join our
+              waitlist to be the first to know when we launch classes. From
+              beginner fundamentals to advanced artistry, we'll have the perfect
+              class for your journey.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-green-600 hover:bg-green-700">
-                <Bell className="mr-2 h-4 w-4" />
-                Join Waitlist
-              </Button>
-              <Button size="lg" variant="outline">
-                Learn More
-              </Button>
+              <Link href="/classes/beginner">
+                <Button size="lg" className="bg-green-600 hover:bg-green-700">
+                  <Bell className="mr-2 h-4 w-4" />
+                  Join Waitlist
+                </Button>
+              </Link>
+              <a href="#class-levels">
+                <Button size="lg" variant="outline">
+                  Learn More
+                </Button>
+              </a>
             </div>
           </div>
         </div>
       </section>
 
       {/* Class Levels */}
-      <section className="py-20">
+      <section id="class-levels" className="py-20">
         <div className="container mx-auto px-4">
           <div className="max-w-2xl mx-auto text-center mb-16">
             <h2 className="text-4xl font-bold mb-4">Find Your Perfect Class</h2>
             <p className="text-gray-600 text-lg">
-              Join our waitlist for structured learning paths designed to build your skills progressively
+              Join our waitlist for structured learning paths designed to build
+              your skills progressively
             </p>
           </div>
 
           <div className="grid lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {classLevels.map((level, index) => (
-              <Card key={level.title} className="group hover:shadow-xl transition-all duration-300 overflow-hidden">
+              <Card
+                key={level.title}
+                className="group hover:shadow-xl transition-all duration-300 overflow-hidden"
+              >
                 <div className="relative h-48 overflow-hidden">
                   <Image
                     src={level.image}
@@ -190,7 +218,9 @@ export default function ClassesPage() {
                     </div>
                     <CardTitle className="text-xl">{level.title}</CardTitle>
                   </div>
-                  <CardDescription className="text-base">{level.description}</CardDescription>
+                  <CardDescription className="text-base">
+                    {level.description}
+                  </CardDescription>
                 </CardHeader>
                 <CardContent>
                   <div className="grid grid-cols-2 gap-4 mb-4 text-sm text-gray-600">
@@ -212,7 +242,10 @@ export default function ClassesPage() {
                   </div>
                   <ul className="space-y-2 mb-6">
                     {level.features.map((feature, featureIndex) => (
-                      <li key={featureIndex} className="flex items-start text-sm text-gray-600">
+                      <li
+                        key={featureIndex}
+                        className="flex items-start text-sm text-gray-600"
+                      >
                         <div className="w-1.5 h-1.5 bg-green-400 rounded-full mr-3 mt-2 flex-shrink-0" />
                         {feature}
                       </li>
@@ -232,12 +265,13 @@ export default function ClassesPage() {
       </section>
 
       {/* Upcoming Workshops */}
-      <section className="py-20 bg-gray-50">
+      {/* <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="max-w-2xl mx-auto text-center mb-16">
             <h2 className="text-4xl font-bold mb-4">Upcoming Workshops</h2>
             <p className="text-gray-600 text-lg">
-              Join our waitlist for special one-day workshops and intensive learning experiences
+              Join our waitlist for special one-day workshops and intensive
+              learning experiences
             </p>
           </div>
 
@@ -275,7 +309,9 @@ export default function ClassesPage() {
                     </div>
                     <div className="flex justify-between">
                       <span>Price:</span>
-                      <span className="font-semibold text-green-600">{workshop.price}</span>
+                      <span className="font-semibold text-green-600">
+                        {workshop.price}
+                      </span>
                     </div>
                   </div>
                   <Button className="w-full bg-green-600 hover:bg-green-700">
@@ -286,28 +322,36 @@ export default function ClassesPage() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Instructors */}
       <section className="py-20">
         <div className="container mx-auto px-4">
           <div className="max-w-2xl mx-auto text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4">Meet Our Expert Instructors</h2>
+            <h2 className="text-4xl font-bold mb-4">
+              Meet Our Expert Instructors
+            </h2>
             <p className="text-gray-600 text-lg">
-              Learn from experienced quilters passionate about sharing their craft
+              Learn from experienced quilters passionate about sharing their
+              craft
             </p>
           </div>
 
           {/* <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto"> */}
           <div className="grid gap-8 max-w-5xl mx-auto">
             {instructors.map((instructor, index) => (
-              <Card key={index} className="text-center hover:shadow-lg transition-shadow">
+              <Card
+                key={index}
+                className="text-center hover:shadow-lg transition-shadow"
+              >
                 <CardHeader>
                   <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
                     <BookOpen className="w-10 h-10 text-green-600" />
                   </div>
                   <CardTitle className="text-xl">{instructor.name}</CardTitle>
-                  <CardDescription className="text-green-600 font-medium">{instructor.title}</CardDescription>
+                  <CardDescription className="text-green-600 font-medium">
+                    {instructor.title}
+                  </CardDescription>
                 </CardHeader>
                 <CardContent>
                   <div className="space-y-2 mb-4">
@@ -338,7 +382,10 @@ export default function ClassesPage() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
             {benefits.map((benefit, index) => (
-              <div key={index} className="flex items-center p-4 bg-white rounded-lg shadow-sm">
+              <div
+                key={index}
+                className="flex items-center p-4 bg-white rounded-lg shadow-sm"
+              >
                 <Star className="w-5 h-5 text-green-500 mr-3 flex-shrink-0" />
                 <span className="text-gray-700">{benefit}</span>
               </div>
@@ -355,17 +402,28 @@ export default function ClassesPage() {
               Ready to Start Learning?
             </h2>
             <p className="text-green-100 text-lg mb-8 leading-relaxed">
-              Join our waitlist to be the first to know when we launch our quilting classes! 
-              Whether you&apos;re a complete beginner or looking to refine your skills, 
-              we'll have the perfect class waiting for you.
+              Join our waitlist to be the first to know when we launch our
+              quilting classes! Whether you&apos;re a complete beginner or
+              looking to refine your skills, we'll have the perfect class
+              waiting for you.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" variant="secondary" className="bg-white text-green-600 hover:bg-gray-50">
-                <Bell className="mr-2 h-4 w-4" />
-                Join Waitlist
-              </Button>
+              <Link href="/classes/beginner">
+                <Button
+                  size="lg"
+                  variant="secondary"
+                  className="bg-white text-green-600 hover:bg-gray-50"
+                >
+                  <Bell className="mr-2 h-4 w-4" />
+                  Join Waitlist
+                </Button>
+              </Link>
               <Link href="/contact">
-                <Button size="lg" variant="outline" className="border-white text-green-600 hover:bg-white hover:text-green-600">
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="border-white text-green-600 hover:bg-white hover:text-green-600"
+                >
                   Contact Us
                 </Button>
               </Link>

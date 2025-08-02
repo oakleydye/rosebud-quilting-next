@@ -2,14 +2,29 @@ import { generateMetadata } from "@/lib/metadata";
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
-import { Clock, Star, ArrowRight, CheckCircle, Ruler, Palette, Zap } from "lucide-react";
+import {
+  Clock,
+  Star,
+  ArrowRight,
+  CheckCircle,
+  Ruler,
+  Palette,
+  Zap,
+} from "lucide-react";
 
 export const metadata = generateMetadata({
   title: "Professional Longarm Quilting Services",
-  description: "Expert longarm quilting with precision stitching, quick turnaround, and competitive pricing. Transform your quilt tops into finished masterpieces.",
+  description:
+    "Expert longarm quilting with precision stitching, quick turnaround, and competitive pricing. Transform your quilt tops into finished masterpieces.",
 });
 
 const pricingTiers = [
@@ -21,12 +36,12 @@ const pricingTiers = [
     features: [
       "Over 200 pantograph patterns",
       "Basic thread colors",
-      "2-week turnaround"
+      "2-week turnaround",
     ],
-    popular: false
+    popular: false,
   },
   {
-    name: "Premium Edge-to-Edge", 
+    name: "Premium Edge-to-Edge",
     price: "$0.020",
     unit: "per sq inch",
     description: "Enhanced patterns with premium thread options",
@@ -34,9 +49,9 @@ const pricingTiers = [
       "Premium pantograph collection",
       "Premium thread selection",
       "1-week turnaround",
-      "Thread color consultation"
+      "Thread color consultation",
     ],
-    popular: true
+    popular: true,
   },
   {
     name: "Custom Quilting",
@@ -47,51 +62,58 @@ const pricingTiers = [
       "Completely custom design",
       "Design consultation included",
       "Priority scheduling",
-      "Digital pattern keepsake"
+      "Digital pattern keepsake",
     ],
-    popular: false
-  }
+    popular: false,
+  },
 ];
 
 const services = [
   {
     icon: Ruler,
     title: "All Quilt Sizes",
-    description: "From baby quilts to king size, we handle projects of every dimension with precision."
+    description:
+      "From baby quilts to king size, we handle projects of every dimension with precision.",
   },
   {
     icon: Palette,
     title: "Thread Selection",
-    description: "Extensive collection of high-quality threads in every color to match your vision."
+    description:
+      "Extensive collection of high-quality threads in every color to match your vision.",
   },
   {
     icon: Zap,
     title: "Fast Turnaround",
-    description: "Most quilts completed within 1-2 weeks, with rush services available."
-  }
+    description:
+      "Most quilts completed within 1-2 weeks, with rush services available.",
+  },
 ];
 
 const process = [
   {
     step: "1",
     title: "Drop Off Your Quilt Top",
-    description: "Bring your quilt top, backing, and batting (or we can provide). We'll discuss your vision and preferences."
+    description:
+      "Bring your quilt top, backing, and batting (or we can provide). We'll discuss your vision and preferences.",
   },
   {
-    step: "2", 
+    step: "2",
     title: "Design Selection",
-    description: "Choose from our extensive pantograph library or discuss custom quilting options."
+    description:
+      "Choose from our extensive pantograph library or discuss custom quilting options.",
   },
   {
     step: "3",
     title: "Expert Quilting",
-    description: "Our skilled quilters bring your project to life with precision and care using professional longarm machines."
+    description:
+      "Our skilled quilters bring your project to life with precision and care using professional longarm machines.",
   },
   {
     step: "4",
     title: "Quality Check & Pickup",
-    description: "Final inspection ensures perfection before your finished quilt is ready for pickup or delivery."
-  }
+    description:
+      "Final inspection ensures perfection before your finished quilt is ready for pickup or delivery.",
+  },
 ];
 
 export default function LongarmQuiltingPage() {
@@ -109,17 +131,22 @@ export default function LongarmQuiltingPage() {
                 Longarm Quilting Excellence
               </h1>
               <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-                Transform your quilt tops into stunning finished pieces with our professional longarm quilting services. 
-                Precision stitching, beautiful patterns, and expert craftsmanship in every project.
+                Transform your quilt tops into stunning finished pieces with our
+                professional longarm quilting services. Precision stitching,
+                beautiful patterns, and expert craftsmanship in every project.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button size="lg" className="bg-blue-600 hover:bg-blue-700">
-                  Get Quote
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </Button>
-                <Button size="lg" variant="outline">
-                  View Gallery
-                </Button>
+                <Link href="/contact">
+                  <Button size="lg" className="bg-blue-600 hover:bg-blue-700">
+                    Get Quote
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </Button>
+                </Link>
+                <Link href="/gallery">
+                  <Button size="lg" variant="outline">
+                    View Gallery
+                  </Button>
+                </Link>
               </div>
             </div>
             <div className="relative">
@@ -134,8 +161,12 @@ export default function LongarmQuiltingPage() {
                 <div className="flex items-center space-x-3">
                   <Star className="w-6 h-6 text-yellow-500" />
                   <div>
-                    <div className="font-semibold">500+ Satisfied Customers</div>
-                    <div className="text-sm text-gray-500">5-star average rating</div>
+                    <div className="font-semibold">
+                      100+ Satisfied Customers
+                    </div>
+                    <div className="text-sm text-gray-500">
+                      5-star average rating
+                    </div>
                   </div>
                 </div>
               </div>
@@ -148,15 +179,21 @@ export default function LongarmQuiltingPage() {
       <section className="py-20">
         <div className="container mx-auto px-4">
           <div className="max-w-2xl mx-auto text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4">Why Choose Our Longarm Services?</h2>
+            <h2 className="text-4xl font-bold mb-4">
+              Why Choose Our Longarm Services?
+            </h2>
             <p className="text-gray-600 text-lg">
-              Professional equipment, expert techniques, and attention to detail in every stitch
+              Professional equipment, expert techniques, and attention to detail
+              in every stitch
             </p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
             {services.map((service, index) => (
-              <Card key={index} className="text-center group hover:shadow-lg transition-shadow">
+              <Card
+                key={index}
+                className="text-center group hover:shadow-lg transition-shadow"
+              >
                 <CardHeader>
                   <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-blue-200 transition-colors">
                     <service.icon className="w-8 h-8 text-blue-600" />
@@ -164,7 +201,9 @@ export default function LongarmQuiltingPage() {
                   <CardTitle className="text-xl">{service.title}</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <CardDescription className="text-base">{service.description}</CardDescription>
+                  <CardDescription className="text-base">
+                    {service.description}
+                  </CardDescription>
                 </CardContent>
               </Card>
             ))}
@@ -184,7 +223,10 @@ export default function LongarmQuiltingPage() {
 
           <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {pricingTiers.map((tier, index) => (
-              <Card key={index} className={`relative ${tier.popular ? 'border-blue-500 border-2 shadow-lg' : ''}`}>
+              <Card
+                key={index}
+                className={`relative ${tier.popular ? "border-blue-500 border-2 shadow-lg" : ""}`}
+              >
                 {tier.popular && (
                   <Badge className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-blue-600">
                     Most Popular
@@ -193,26 +235,35 @@ export default function LongarmQuiltingPage() {
                 <CardHeader className="text-center">
                   <CardTitle className="text-2xl">{tier.name}</CardTitle>
                   <div className="mt-4">
-                    <span className="text-4xl font-bold text-blue-600">{tier.price}</span>
+                    <span className="text-4xl font-bold text-blue-600">
+                      {tier.price}
+                    </span>
                     <span className="text-gray-500 ml-2">{tier.unit}</span>
                   </div>
-                  <CardDescription className="mt-2">{tier.description}</CardDescription>
+                  <CardDescription className="mt-2">
+                    {tier.description}
+                  </CardDescription>
                 </CardHeader>
                 <CardContent>
                   <ul className="space-y-3">
                     {tier.features.map((feature, featureIndex) => (
-                      <li key={featureIndex} className="flex items-center text-sm">
+                      <li
+                        key={featureIndex}
+                        className="flex items-center text-sm"
+                      >
                         <CheckCircle className="w-4 h-4 text-green-500 mr-3 flex-shrink-0" />
                         {feature}
                       </li>
                     ))}
                   </ul>
-                  <Button 
-                    className={`w-full mt-6 ${tier.popular ? 'bg-blue-600 hover:bg-blue-700' : ''}`}
-                    variant={tier.popular ? 'default' : 'outline'}
-                  >
-                    Choose This Option
-                  </Button>
+                  <Link href="/contact">
+                    <Button
+                      className={`w-full mt-6 ${tier.popular ? "bg-blue-600 hover:bg-blue-700" : ""}`}
+                      variant={tier.popular ? "default" : "outline"}
+                    >
+                      Choose This Option
+                    </Button>
+                  </Link>
                 </CardContent>
               </Card>
             ))}
@@ -255,16 +306,27 @@ export default function LongarmQuiltingPage() {
               Ready to Transform Your Quilt Top?
             </h2>
             <p className="text-blue-100 text-lg mb-8 leading-relaxed">
-              Get started with a free consultation and quote. We&apos;ll help you choose the perfect quilting pattern 
-              and discuss all your options to create a stunning finished quilt.
+              Get started with a free consultation and quote. We&apos;ll help
+              you choose the perfect quilting pattern and discuss all your
+              options to create a stunning finished quilt.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" variant="secondary" className="bg-white text-blue-600 hover:bg-gray-50">
-                <Clock className="mr-2 h-4 w-4" />
-                Get Free Quote
-              </Button>
               <Link href="/contact">
-                <Button size="lg" variant="outline" className="border-white text-blue-600 hover:bg-white hover:text-blue-600">
+                <Button
+                  size="lg"
+                  variant="secondary"
+                  className="bg-white text-blue-600 hover:bg-gray-50"
+                >
+                  <Clock className="mr-2 h-4 w-4" />
+                  Get Free Quote
+                </Button>
+              </Link>
+              <Link href="/contact">
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="border-white text-blue-600 hover:bg-white hover:text-blue-600"
+                >
                   Contact Us Today
                 </Button>
               </Link>

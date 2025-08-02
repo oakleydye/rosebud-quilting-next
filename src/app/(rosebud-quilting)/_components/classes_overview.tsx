@@ -144,7 +144,7 @@ export default function ClassesOverview() {
         </div>
 
         {/* Upcoming Workshops */}
-        <div className="mb-16">
+        {/* <div className="mb-16">
           <h3 className="text-2xl font-bold text-center mb-8">Upcoming Workshops</h3>
           <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
             {upcomingWorkshops.map((workshop, index) => (
@@ -176,7 +176,7 @@ export default function ClassesOverview() {
               </Card>
             ))}
           </div>
-        </div>
+        </div> */}
 
         {/* Benefits & CTA */}
         <div className="bg-white rounded-2xl p-8 shadow-lg max-w-4xl mx-auto">
