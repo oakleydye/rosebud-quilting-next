@@ -1,25 +1,21 @@
-'use client';
-
 import ContactForm from '@/app/_components/contact_form';
-import { Card, Container, Typography, useMediaQuery, useTheme } from '@mui/material';
-import * as React from 'react';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
-const ContactSection : React.FC = () => {
-    const theme = useTheme();
-    const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
-
+export default function ContactSection() {
     return (  
-        <React.Fragment>
-            <Container maxWidth='lg' sx={{ mt: 10, pt: 5 }}>
-                <Card sx={{ pt: 5, px: 5 }}>
-                    <Typography variant={isMobile ? 'h4' : 'h2'} gutterBottom >
-                        Contact Us
-                    </Typography>
-                    <ContactForm />
+        <section className="py-16 bg-muted/30">
+            <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+                <Card className="shadow-lg">
+                    <CardHeader>
+                        <CardTitle className="text-3xl sm:text-4xl font-bold text-center">
+                            Contact Us
+                        </CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                        <ContactForm />
+                    </CardContent>
                 </Card>
-            </Container>
-        </React.Fragment>
+            </div>
+        </section>
     );
 }
- 
-export default ContactSection;

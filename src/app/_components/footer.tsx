@@ -1,118 +1,214 @@
-"use client";
+import Image from 'next/image';
+import Link from 'next/link';
+import { MapPin, Phone, Mail, Clock } from 'lucide-react';
 
-import {
-  Box,
-  Divider,
-  Link,
-  Typography,
-  useMediaQuery,
-  useTheme,
-} from "@mui/material";
-import * as React from "react";
-
-const Footer: React.FC = () => {
-  const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+export default function Footer() {
+  const currentYear = new Date().getFullYear();
 
   return (
-    <React.Fragment>
-      <Divider sx={{ my: 5 }} />
-      <footer className="footer">
-        <div className="footer-content">
-          <Box
-            sx={{
-              display: "flex",
-              flexDirection: isMobile ? "column" : "row",
-              mb: "1rem",
-              justifyContent: "space-between",
-              gap: 5,
-              mx: 5,
-            }}
-          >
-            <Box
-              sx={{
-                display: "flex",
-                flexDirection: "column",
-                justifyContent: "center",
-                alignItems: "center",
-              }}
-              className="footer-section"
-            >
-              <Link href={`/`}>
-                <img
-                  src="/footer_logo.png"
-                  alt="Rosebud Quilting"
-                  width={150}
-                />
-              </Link>
-            </Box>
-            {/* <Box sx={{ display: 'flex', flexDirection: 'column' }} className='footer-section'>
-                            <Typography variant='h6'>Company</Typography>
-                            <ul>
-                                <Link sx={{ color: '#FFFFFF' }} href={`/about`}><li>About Us</li></Link>
-                                <Link sx={{ color: '#FFFFFF' }} href={`/services`}><li>Services</li></Link>
-                                <Link sx={{ color: '#FFFFFF' }} href={`/portfolio`}><li>Portfolio</li></Link>
-                                <Link sx={{ color: '#FFFFFF' }} href={`/testimonials`}><li>Testimonials</li></Link>
-                                <Link sx={{ color: '#FFFFFF' }} href={`/contact`}><li>Contact Us</li></Link>
-                            </ul>
-                        </Box>
-                        <Box sx={{ display: 'flex', flexDirection: 'column' }} className='footer-section'>
-                            <Typography variant='h6'>Services</Typography>
-                            <ul>
-                                <Link sx={{ color: '#FFFFFF' }} href={`/services/weddings`}><li>Weddings</li></Link>
-                                <Link sx={{ color: '#FFFFFF' }} href={`/services/dances`}><li>Dances</li></Link>
-                                <Link sx={{ color: '#FFFFFF' }} href={`/services/parties`}><li>Parties</li></Link>
-                                <Link sx={{ color: '#FFFFFF' }} href={`/services/corporate-events`}><li>Corporate Events</li></Link>
-                                <Link sx={{ color: '#FFFFFF' }} href={`/services/live-sound`}><li>Live Sound</li></Link>
-                                <Link sx={{ color: '#FFFFFF' }} href={`/services/gear-rental`}><li>Gear Rental</li></Link>
-                            </ul>
-                        </Box>
-                        <Box sx={{ display: 'flex', flexDirection: 'column' }} className='footer-section'>
-                            <Typography variant='h6'>Legal</Typography>
-                            <ul>
-                                <Link sx={{ color: '#FFFFFF' }} href={`/legal/privacy-policy`}><li>Privacy Policy</li></Link>
-                                <Link sx={{ color: '#FFFFFF' }} href={`/legal/terms-and-conditions`}><li>Terms & Conditions</li></Link>
-                                <Link sx={{ color: '#FFFFFF' }} href={`/legal/cookie-policy`}><li>Cookie Policy</li></Link>
-                                <Link sx={{ color: '#FFFFFF' }} href={`/legal/disclaimer`}><li>Disclaimer</li></Link>
-                            </ul>
-                        </Box> */}
-            <Box
-              sx={{ display: "flex", flexDirection: "column" }}
-              className="footer-section"
-            >
-              <Typography variant="h6">Contact Us</Typography>
-              <ul>
-                <Link
-                  sx={{ color: theme.palette.text.primary }}
-                  href={"tel:+18016087461"}
-                >
-                  <li>801-608-7461</li>
-                </Link>
-                <Link
-                  sx={{ color: theme.palette.text.primary }}
-                  href={"mailto:diana@rosebudquilting.com"}
-                >
-                  <li>diana@rosebudquilting.com</li>
-                </Link>
-                <li>Hyrum, UT</li>
-              </ul>
-            </Box>
-          </Box>
-        </div>
-        <div
-          className="footer-bottom"
-          style={{ marginTop: 50, marginBottom: 20, marginLeft: 50 }}
-        >
-          <p>
-            &copy; 2024 Rosebud Quilting. All Rights Reserved. Website by{" "}
-            <Link href="https://oakleydye.com">
-              Oakley Dye Software &amp; Design.
-            </Link>
-          </p>
-        </div>
-      </footer>
-    </React.Fragment>
-  );
-};
+    <footer className="bg-slate-900 text-slate-200">
+      <div className="container mx-auto px-4 py-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {/* Company Info */}
+          <div className="lg:col-span-1">
+            <div className="flex items-center space-x-3 mb-6">
+              <Image
+                src="/footer_logo.png"
+                alt="Rosebud Quilting - Professional Quilting Services"
+                width={40}
+                height={40}
+                className="rounded"
+              />
+              <h3 className="text-xl font-semibold font-amsterdam">Rosebud Quilting</h3>
+            </div>
+            <p className="text-slate-300 mb-6 leading-relaxed">
+              Your complete quilting destination since 2023. Professional longarm quilting, premium fabrics, expert classes, and everything you need for your quilting journey in Hyrum, Utah.
+            </p>
+            <div className="flex items-center space-x-2 text-slate-300 mb-2">
+              <Clock className="h-4 w-4" />
+              <span className="text-sm">Mon-Sat: 9AM-7PM | Sun: 11AM-5PM</span>
+            </div>
+          </div>
 
-export default Footer;
+          {/* Services Links */}
+          <div>
+            <h4 className="text-lg font-semibold mb-6 text-white">Our Services</h4>
+            <nav className="space-y-3">
+              <Link href="/services" className="block text-slate-300 hover:text-white transition-colors">
+                All Quilting Services
+              </Link>
+              <Link href="/services/longarm" className="block text-slate-300 hover:text-white transition-colors">
+                Longarm Quilting
+              </Link>
+              <Link href="/services/custom" className="block text-slate-300 hover:text-white transition-colors">
+                Custom Quilting
+              </Link>
+              <Link href="/services/repair" className="block text-slate-300 hover:text-white transition-colors">
+                Quilt Repair & Restoration
+              </Link>
+              <Link href="/services/binding" className="block text-slate-300 hover:text-white transition-colors">
+                Binding Services
+              </Link>
+            </nav>
+          </div>
+
+          {/* Shop & Classes Links */}
+          <div>
+            {/* <h4 className="text-lg font-semibold mb-6 text-white">Shop & Learn</h4> */}
+            <h4 className="text-lg font-semibold mb-6 text-white">Learn</h4>
+            <nav className="space-y-3">
+              {/* <Link href="/shop" className="block text-slate-300 hover:text-white transition-colors">
+                Quilting Shop
+              </Link>
+              <Link href="/shop/fabrics" className="block text-slate-300 hover:text-white transition-colors">
+                Premium Fabrics
+              </Link>
+              <Link href="/shop/machines" className="block text-slate-300 hover:text-white transition-colors">
+                Quilting Machines
+              </Link>
+              <Link href="/shop/notions" className="block text-slate-300 hover:text-white transition-colors">
+                Tools & Notions
+              </Link> */}
+              <Link href="/classes" className="block text-slate-300 hover:text-white transition-colors">
+                Quilting Classes
+              </Link>
+              <Link href="/classes/beginner" className="block text-slate-300 hover:text-white transition-colors">
+                Beginner Classes
+              </Link>
+            </nav>
+          </div>
+
+          {/* Contact & Company Info */}
+          <div>
+            <h4 className="text-lg font-semibold mb-6 text-white">Get in Touch</h4>
+            <div className="space-y-4">
+              <div className="flex items-start space-x-3">
+                <MapPin className="h-5 w-5 text-slate-400 mt-0.5 flex-shrink-0" />
+                <div className="text-slate-300">
+                  <p className="font-medium">Visit Our Studio</p>
+                  <p className="text-sm">572 S 690 E Hyrum, UT 84319</p>
+                  <p className="text-sm">Serving Northern Utah</p>
+                </div>
+              </div>
+              <div className="flex items-center space-x-3">
+                <Phone className="h-5 w-5 text-slate-400 flex-shrink-0" />
+                <div>
+                  <a href="tel:+18016087461" className="text-slate-300 hover:text-white transition-colors">
+                    (801) 608-7461
+                  </a>
+                </div>
+              </div>
+              <div className="flex items-center space-x-3">
+                <Mail className="h-5 w-5 text-slate-400 flex-shrink-0" />
+                <div>
+                  <a href="mailto:diana@rosebudquilting.com" className="text-slate-300 hover:text-white transition-colors">
+                    diana@rosebudquilting.com
+                  </a>
+                </div>
+              </div>
+            </div>
+            
+            <div className="mt-6">
+              <nav className="space-y-2">
+                <Link href="/about" className="block text-slate-300 hover:text-white transition-colors text-sm">
+                  About Us
+                </Link>
+                <Link href="/faq" className="block text-slate-300 hover:text-white transition-colors text-sm">
+                  FAQ
+                </Link>
+                <Link href="/contact" className="block text-slate-300 hover:text-white transition-colors text-sm">
+                  Contact Us
+                </Link>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Bottom section with structured data */}
+      <div className="border-t border-slate-700">
+        <div className="container mx-auto px-4 py-8">
+          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+            <div className="text-slate-400 text-sm">
+              <p>&copy; {currentYear} Rosebud Quilting. All rights reserved.</p>
+              <p className="mt-1">Professional Quilting Services | Hyrum, Utah | Est. 2023</p>
+            </div>
+            <div className="text-slate-400 text-sm">
+              <p>Serving quilters throughout Northern Utah with quality and care.</p>
+              <p className="mt-1">Powered by <Link href="https://www.oakleydye.com" target='_blank' rel='noopener noreferrer' className='text-slate-300 hover:text-white transition-colors'>Oakley Dye Software & Design</Link></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Structured Data for SEO */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "LocalBusiness",
+            "name": "Rosebud Quilting",
+            "description": "Professional quilting services, premium fabrics, quilting classes, and supplies in Hyrum, Utah. Specializing in longarm quilting, custom designs, and quilt restoration since 2023.",
+            "url": "https://www.rosebudquilting.com",
+            "telephone": "+18016087461",
+            "email": "diana@rosebudquilting.com",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "572 S 690 E",
+              "addressLocality": "Hyrum",
+              "addressRegion": "UT",
+              "postalCode": "84319",
+              "addressCountry": "US"
+            },
+            "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": "41.6341",
+              "longitude": "-111.8538"
+            },
+            "openingHours": [
+              "Mo-Sa 09:00-19:00",
+              "Su 11:00-17:00"
+            ],
+            "servesCuisine": [],
+            "priceRange": "$$",
+            "acceptedPaymentMethod": [
+              "Cash",
+              "Credit Card"
+            ],
+            "hasOfferCatalog": {
+              "@type": "OfferCatalog",
+              "name": "Quilting Services",
+              "itemListElement": [
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Longarm Quilting",
+                    "description": "Professional longarm quilting services"
+                  }
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Custom Quilting",
+                    "description": "Personalized quilting designs"
+                  }
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Quilting Classes",
+                    "description": "Learn quilting from beginner to advanced levels"
+                  }
+                }
+              ]
+            }
+          })
+        }}
+      />
+    </footer>
+  );
+}

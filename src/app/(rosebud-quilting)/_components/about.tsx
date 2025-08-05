@@ -1,40 +1,15 @@
-"use client";
+import Image from "next/image";
 
-import {
-  Box,
-  Container,
-  Typography,
-  useMediaQuery,
-  useTheme,
-} from "@mui/material";
-import * as React from "react";
-
-const AboutSection: React.FC = () => {
-  const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
-
+export default function AboutSection() {
   return (
-    <React.Fragment>
-      <Container maxWidth="lg" sx={{ mt: 4 }}>
-        <Box
-          sx={{
-            display: "flex",
-            flexDirection: isMobile ? "column" : "row",
-            alignItems: "center",
-            gap: 5,
-            justifyContent: "center",
-          }}
-        >
-          <Box>
-            <Typography
-              variant={isMobile ? "h4" : "h2"}
-              component="h2"
-              gutterBottom
-              sx={{ mb: 10 }}
-            >
+    <section className="py-16 bg-background">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="grid gap-12 lg:grid-cols-2 lg:gap-20 items-center">
+          <div>
+            <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-8">
               About Us
-            </Typography>
-            <Typography variant="body1" component="p">
+            </h2>
+            <p className="text-lg text-muted-foreground leading-relaxed">
               Welcome to Rosebud Quilting, where your passion for quilting meets
               our dedication to excellence. With years of experience and a deep
               love for the art of quilting, we specialize in providing top-notch
@@ -43,19 +18,19 @@ const AboutSection: React.FC = () => {
               is finished to perfection. At Rosebud Quilting, we believe that
               every quilt tells a story, and we're here to help you tell yours
               with beauty and precision.
-            </Typography>
-          </Box>
-          <Box>
-            <img
+            </p>
+          </div>
+          <div className="relative">
+            <Image
               src="/images/masonryGrid/studio.webp"
               alt="Our Studio"
-              style={{ width: "100%", height: "auto" }}
+              width={600}
+              height={400}
+              className="rounded-lg shadow-lg"
             />
-          </Box>
-        </Box>
-      </Container>
-    </React.Fragment>
+          </div>
+        </div>
+      </div>
+    </section>
   );
-};
-
-export default AboutSection;
+}
