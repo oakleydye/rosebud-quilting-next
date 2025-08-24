@@ -7,6 +7,7 @@ import { generateMetadata } from "@/lib/metadata";
 import { Header } from "../_components/header";
 import Footer from "../_components/footer";
 import { CartSidebar } from "@/components/cart/cart-sidebar";
+import { Analytics } from "@vercel/analytics/next"
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -30,6 +31,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <Analytics />
         <Providers>
           <div className="flex min-h-screen flex-col">
             <Header />
