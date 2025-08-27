@@ -57,7 +57,7 @@ export default function NotFound() {
                     <h3 className="font-semibold text-gray-900">Services</h3>
                   </div>
                   <p className="text-gray-600 text-sm mb-4">
-                    Discover our longarm quilting, repairs, and custom quilting services.
+                    Discover our longarm quilting, repairs, and made to order quilt services.
                   </p>
                   <Button asChild variant="outline" size="sm" className="w-full">
                     <Link href="/services">

@@ -25,7 +25,7 @@ import {
 export const metadata = generateMetadata({
   title: "Made to Order Quilt Services",
   description:
-    "Create one-of-a-kind quilts with our custom quilting design services. From personalized patterns to bespoke quilting motifs, bring your unique vision to life.",
+    "Create one-of-a-kind quilts with our made to order quilt design services. From personalized patterns to bespoke quilting motifs, bring your unique vision to life.",
 });
 
 const designTypes = [
@@ -33,7 +33,7 @@ const designTypes = [
     name: "Personalized Quilts",
     price: "Starting at $150",
     description:
-      "Custom quilting patterns designed specifically for your quilt",
+      "Custom patterns designed specifically for your quilt",
     features: [
       "One-on-one design consultation",
       "Personalized quilting motifs",

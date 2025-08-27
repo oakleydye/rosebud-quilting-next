@@ -35,9 +35,9 @@ const services = [
     badge: "Most Popular",
   },
   {
-    title: "Custom Quilting",
-    href: "/services/custom",
-    description: "Personalized quilting designs tailored to your unique vision",
+    title: "Made to Order Quilts",
+    href: "/services/made-to-order",
+    description: "Personalized quilt design and commission tailored to your unique vision",
     image: "/images/masonryGrid/demi_flower.webp",
     features: [
       "One-of-a-kind designs",
