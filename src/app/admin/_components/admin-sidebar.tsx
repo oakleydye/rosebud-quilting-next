@@ -12,10 +12,12 @@ import {
   Users,
   Settings,
   BarChart3,
+  FileText,
 } from 'lucide-react';
 
 const navigation = [
   { name: 'Dashboard', href: '/admin', icon: LayoutDashboard },
+  { name: 'Blog', href: '/admin/blog', icon: FileText },
   { name: 'Products', href: '/admin/products', icon: Package },
   { name: 'Orders', href: '/admin/orders', icon: ShoppingCart },
   { name: 'Classes', href: '/admin/classes', icon: GraduationCap },

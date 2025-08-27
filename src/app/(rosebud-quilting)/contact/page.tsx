@@ -5,8 +5,16 @@ import { MapPin, Phone, Mail, Clock, MessageCircle, Calendar, Car } from "lucide
 import ContactForm from "../../_components/contact_form";
 
 export const metadata = generateMetadata({
-  title: "Contact Us - Get in Touch with Rosebud Quilting",
-  description: "Contact Rosebud Quilting for services, classes, or questions. Visit our store, call, email, or send us a message. We're here to help with all your quilting needs.",
+  title: "Contact Northern Utah's Premier Longarm Quilting Service",
+  description: "Contact Rosebud Quilting in Hyrum, UT for longarm quilting services, classes, and consultations. Serving Cache Valley, Logan, Providence. Call (801) 608-7461 or visit our showroom.",
+  keywords: [
+    "contact longarm quilting utah",
+    "longarm quilting hyrum utah hours",
+    "quilting services cache valley contact",
+    "longarm quilting consultation utah", 
+    "quilting shop hyrum utah phone",
+    "custom quilting northern utah contact"
+  ]
 });
 
 const contactMethods = [

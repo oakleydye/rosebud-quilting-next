@@ -1,4 +1,5 @@
 import { generateMetadata } from "@/lib/metadata";
+import { serviceSchema, breadcrumbListSchema } from "@/lib/structured-data";
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
@@ -22,9 +23,23 @@ import {
 } from "lucide-react";
 
 export const metadata = generateMetadata({
-  title: "Professional Longarm Quilting Services",
-  description:
-    "Expert longarm quilting with precision stitching, quick turnaround, and competitive pricing. Transform your quilt tops into finished masterpieces.",
+  title: "Professional Longarm Quilting Services Northern Utah",
+  description: "Expert longarm quilting in Hyrum, UT. Custom patterns, edge-to-edge designs, T-shirt quilts. Fast turnaround, competitive pricing. Serving Cache Valley, Logan, Providence. Call (801) 608-7461.",
+  keywords: [
+    "longarm quilting northern utah",
+    "professional longarm quilting hyrum", 
+    "longarm quilting cache valley",
+    "longarm quilting logan utah",
+    "edge-to-edge quilting utah",
+    "custom longarm patterns utah",
+    "t-shirt longarm quilting",
+    "pantograph quilting utah",
+    "longarm quilting near me",
+    "professional quilting services utah",
+    "longarm machine quilting",
+    "quilt finishing utah"
+  ],
+  canonical: "https://rosebudquilting.com/services/longarm"
 });
 
 const pricingTiers = [
@@ -117,23 +132,38 @@ const process = [
 ];
 
 export default function LongarmQuiltingPage() {
+  const longarmServiceSchema = serviceSchema({
+    name: "Professional Longarm Quilting Services",
+    description: "Expert longarm quilting with precision stitching, custom patterns, and quick turnaround times in Northern Utah.",
+    price: "0.015",
+    url: "https://rosebudquilting.com/services/longarm"
+  });
+
+  const breadcrumbs = breadcrumbListSchema([
+    { name: "Home", url: "https://rosebudquilting.com" },
+    { name: "Services", url: "https://rosebudquilting.com/services" },
+    { name: "Longarm Quilting", url: "https://rosebudquilting.com/services/longarm" }
+  ]);
+
   return (
     <div className="min-h-screen">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify([longarmServiceSchema, breadcrumbs]) }}
+      />
       {/* Hero Section */}
       <section className="relative py-24 bg-gradient-to-br from-blue-50 to-indigo-100">
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <Badge className="mb-4 bg-blue-100 text-blue-800 hover:bg-blue-200">
-                Professional Longarm Services
+                Professional Longarm Services Northern Utah
               </Badge>
               <h1 className="text-5xl md:text-6xl mb-6 mt-4 bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent overflow-visible">
-                Longarm Quilting Excellence
+                Expert Longarm Quilting in Cache Valley
               </h1>
               <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-                Transform your quilt tops into stunning finished pieces with our
-                professional longarm quilting services. Precision stitching,
-                beautiful patterns, and expert craftsmanship in every project.
+                Transform your quilt tops into stunning finished pieces with Northern Utah's premier longarm quilting service. Located in Hyrum, serving Logan, Providence, Smithfield, and all of Cache Valley with precision stitching, beautiful patterns, and expert craftsmanship.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link href="/contact">

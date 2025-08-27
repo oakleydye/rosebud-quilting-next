@@ -137,6 +137,11 @@ const navigation = [
         description: "View our quilting portfolio and projects",
       },
       {
+        name: "Blog",
+        href: "/blog",
+        description: "Expert quilting tips and tutorials",
+      },
+      {
         name: "FAQ",
         href: "/faq",
         description: "Frequently asked questions",

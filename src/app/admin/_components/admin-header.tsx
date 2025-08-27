@@ -1,7 +1,6 @@
 'use client';
 
 import { useState } from 'react';
-import { useRouter } from 'next/navigation';
 import { Bell, Search, User, Settings, LogOut } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -13,14 +12,14 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
+import { useAuth } from '@/components/auth/auth0-provider';
 
 export function AdminHeader() {
   const [notifications] = useState(3); // Mock notification count
-  const router = useRouter();
+  const { user, logout } = useAuth();
 
   const handleLogout = () => {
-    localStorage.removeItem('adminToken');
-    router.push('/admin/login');
+    logout();
   };
 
   return (
@@ -54,10 +53,18 @@ export function AdminHeader() {
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button variant="ghost" className="flex items-center space-x-2">
-                <div className="w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center">
-                  <User className="h-4 w-4 text-purple-600" />
-                </div>
-                <span className="text-sm font-medium">Emma Wilson</span>
+                {user?.picture ? (
+                  <img 
+                    src={user.picture} 
+                    alt={user.name || 'User'} 
+                    className="w-8 h-8 rounded-full"
+                  />
+                ) : (
+                  <div className="w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center">
+                    <User className="h-4 w-4 text-purple-600" />
+                  </div>
+                )}
+                <span className="text-sm font-medium">{user?.name || user?.email || 'Admin'}</span>
               </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end" className="w-56">

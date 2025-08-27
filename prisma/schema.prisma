@@ -133,3 +133,38 @@ enum WaitlistStatus {
 
   @@map("waitlist_status")
 }
+
+model BlogPost {
+  id          String            @id @default(cuid())
+  title       String
+  slug        String            @unique
+  excerpt     String
+  content     String
+  category    String
+  status      BlogPostStatus    @default(DRAFT)
+  author      String
+  authorEmail String?
+  publishedAt DateTime?
+  readTime    String
+  image       String?
+  featured    Boolean           @default(false)
+  views       Int               @default(0)
+  likes       Int               @default(0)
+  seoTitle    String?
+  seoDescription String?
+  seoKeywords String[]
+  tags        String[]
+  createdAt   DateTime          @default(now())
+  updatedAt   DateTime          @updatedAt
+
+  @@map("blog_posts")
+}
+
+enum BlogPostStatus {
+  DRAFT
+  PUBLISHED
+  SCHEDULED
+  ARCHIVED
+
+  @@map("blog_post_status")
+}

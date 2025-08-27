@@ -1,4 +1,5 @@
 import { generateMetadata } from "@/lib/metadata";
+import { faqSchema } from "@/lib/structured-data";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import {
@@ -20,9 +21,15 @@ import { HelpCircle, Phone, Mail, MessageCircle } from "lucide-react";
 import { CategoryCard } from "./_components/category-card";
 
 export const metadata = generateMetadata({
-  title: "Frequently Asked Questions - FAQ",
-  description:
-    "Find answers to common questions about our quilting services, classes, shop, pricing, and more. Get the information you need about Rosebud Quilting.",
+  title: "Frequently Asked Questions - Longarm Quilting Utah",
+  description: "Get answers to common questions about longarm quilting services, pricing, classes, and more. Expert quilting advice from Northern Utah's premier quilting service.",
+  keywords: [
+    "longarm quilting faq utah",
+    "quilting questions northern utah", 
+    "longarm quilting pricing utah",
+    "quilting services faq cache valley",
+    "quilting classes questions utah"
+  ]
 });
 
 const faqCategories = [
@@ -59,8 +66,23 @@ const faqCategories = [
 ];
 
 export default function FAQPage() {
+  // Get all FAQs for structured data
+  const allFaqs = [
+    ...faqs.general,
+    ...faqs.services, 
+    ...faqs.pricing,
+    ...faqs.classes,
+    ...faqs.shop
+  ];
+  
+  const faqStructuredData = faqSchema(allFaqs);
+
   return (
     <div className="min-h-screen">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqStructuredData) }}
+      />
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-blue-50 to-indigo-50 py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-10">
@@ -72,9 +94,7 @@ export default function FAQPage() {
               Frequently Asked Questions
             </h1>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Find answers to the most common questions about our services,
-              classes, shop, and everything quilting. Can't find what you're
-              looking for? We're here to help!
+              Find answers to the most common questions about our longarm quilting services, classes, pricing, and everything quilting in Northern Utah. Can't find what you're looking for? We're here to help!
             </p>
           </div>
 
