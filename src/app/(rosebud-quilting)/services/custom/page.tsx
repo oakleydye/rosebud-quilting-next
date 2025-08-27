@@ -23,14 +23,14 @@ import {
 } from "lucide-react";
 
 export const metadata = generateMetadata({
-  title: "Custom Quilting Design Services",
+  title: "Made to Order Quilt Services",
   description:
     "Create one-of-a-kind quilts with our custom quilting design services. From personalized patterns to bespoke quilting motifs, bring your unique vision to life.",
 });
 
 const designTypes = [
   {
-    name: "Personalized Quilting",
+    name: "Personalized Quilts",
     price: "Starting at $150",
     description:
       "Custom quilting patterns designed specifically for your quilt",
@@ -58,7 +58,7 @@ const designTypes = [
     popular: true,
   },
   {
-    name: "Wedding & Celebration",
+    name: "Wedding & Celebration Quilts",
     price: "Starting at $250",
     description: "Special occasion quilts for life's most important moments",
     features: [
@@ -134,10 +134,10 @@ export default function CustomQuiltingPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-10">
           <div className="text-center mb-16">
             <Badge variant="outline" className="mb-4">
-              Custom Design Services
+              Commisioned Quilt Services
             </Badge>
             <h1 className="text-4xl md:text-6xl mb-6">
-              Custom Quilting Design
+              Made to Order Quilt Service
             </h1>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
               Create one-of-a-kind quilts that tell your story. Our custom
