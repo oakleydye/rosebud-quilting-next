@@ -17,11 +17,11 @@ const services = [
   },
   {
     icon: Palette,
-    title: "Custom Quilting",
+    title: "Made to Order Quilts",
     description: "Personalized designs tailored to your unique vision",
-    href: "/services/custom",
+    href: "/services/made-to-order",
     image: "/images/masonryGrid/demi_flower.webp",
-    startingPrice: "Starting at $0.03/sq inch",
+    startingPrice: "Starting at $150",
     badge: "Premium"
   },
   {
