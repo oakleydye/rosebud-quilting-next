@@ -12,7 +12,7 @@ const services = [
     description: "Professional longarm quilting services with precision and care",
     href: "/services/longarm",
     image: "/images/masonryGrid/studio.webp",
-    startingPrice: "Starting at $0.015/sq inch",
+    startingPrice: "Starting at $0.02/sq inch",
     badge: "Most Popular"
   },
   {
@@ -21,7 +21,7 @@ const services = [
     description: "Personalized designs tailored to your unique vision",
     href: "/services/custom",
     image: "/images/masonryGrid/demi_flower.webp",
-    startingPrice: "Starting at $0.025/sq inch",
+    startingPrice: "Starting at $0.03/sq inch",
     badge: "Premium"
   },
   {
