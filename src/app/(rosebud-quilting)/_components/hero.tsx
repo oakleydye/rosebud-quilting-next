@@ -12,8 +12,8 @@ export default function HeroSection() {
   const [isMobile, setIsMobile] = useState<boolean>(false);
 
   const texts = [
-    "Services • Shop • Classes • Community",
     "Your Complete Quilting Destination",
+    "Services • Shop • Classes • Community",
   ];
 
   useLayoutEffect(() => {

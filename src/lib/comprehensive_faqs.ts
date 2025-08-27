@@ -46,7 +46,7 @@ export const faqs = {
   pricing: [
     {
       question: "How much does longarm quilting cost?",
-      answer: "Our longarm quilting starts at $0.015 per square inch for basic edge-to-edge patterns, $0.020 for premium patterns, and $0.025 for custom quilting. The total cost depends on your quilt size and pattern complexity. We provide detailed quotes upfront with no hidden fees."
+      answer: "Our longarm quilting starts at $0.02 per square inch for basic edge-to-edge patterns, $0.025 for premium patterns, and $0.03 for custom quilting. The total cost depends on your quilt size and pattern complexity. We provide detailed quotes upfront with no hidden fees."
     },
     {
       question: "How do you calculate pricing?",

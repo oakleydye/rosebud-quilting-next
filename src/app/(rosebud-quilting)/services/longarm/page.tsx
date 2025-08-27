@@ -30,7 +30,7 @@ export const metadata = generateMetadata({
 const pricingTiers = [
   {
     name: "Basic Edge-to-Edge",
-    price: "$0.015",
+    price: "$0.02",
     unit: "per sq inch",
     description: "Simple, continuous patterns across the entire quilt",
     features: [
@@ -42,7 +42,7 @@ const pricingTiers = [
   },
   {
     name: "Premium Edge-to-Edge",
-    price: "$0.020",
+    price: "$0.025",
     unit: "per sq inch",
     description: "Enhanced patterns with premium thread options",
     features: [
@@ -55,7 +55,7 @@ const pricingTiers = [
   },
   {
     name: "Custom Quilting",
-    price: "$0.025",
+    price: "$0.03",
     unit: "per sq inch",
     description: "Fully customized quilting design",
     features: [

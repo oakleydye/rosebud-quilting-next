@@ -26,7 +26,7 @@ const inquiryTypes = [
 
 const serviceCategories = [
   { value: "longarm", label: "Longarm Quilting" },
-  { value: "custom", label: "Custom Quilting" },
+  { value: "made-to-order", label: "Made to Order Quilts" },
   { value: "repair", label: "Quilt Repair" },
   { value: "binding", label: "Binding Services" },
   { value: "consultation", label: "Design Consultation" },

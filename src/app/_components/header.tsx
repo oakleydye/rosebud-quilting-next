@@ -44,9 +44,9 @@ const navigation = [
         description: "Professional longarm quilting services",
       },
       {
-        name: "Custom Quilting",
-        href: "/services/custom",
-        description: "Personalized quilting designs",
+        name: "Made to Order Quilts",
+        href: "/services/made-to-order",
+        description: "Personalized quilt commissions",
       },
       {
         name: "Quilt Repair",

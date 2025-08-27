@@ -40,8 +40,8 @@ export default function Footer() {
               <Link href="/services/longarm" className="block text-slate-300 hover:text-white transition-colors">
                 Longarm Quilting
               </Link>
-              <Link href="/services/custom" className="block text-slate-300 hover:text-white transition-colors">
-                Custom Quilting
+              <Link href="/services/made-to-order" className="block text-slate-300 hover:text-white transition-colors">
+                Made to Order Quilts
               </Link>
               <Link href="/services/repair" className="block text-slate-300 hover:text-white transition-colors">
                 Quilt Repair & Restoration
@@ -192,8 +192,8 @@ export default function Footer() {
                   "@type": "Offer",
                   "itemOffered": {
                     "@type": "Service",
-                    "name": "Custom Quilting",
-                    "description": "Personalized quilting designs"
+                    "name": "Made to Order Quilts",
+                    "description": "Personalized quilt designs tailored to your unique vision"
                   }
                 },
                 {
